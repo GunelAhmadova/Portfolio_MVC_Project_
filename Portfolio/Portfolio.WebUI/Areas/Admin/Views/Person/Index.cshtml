@@ -1,0 +1,154 @@
+﻿@using Portfolio.Domain.Models
+@model Person
+
+@{
+    ViewData["Title"] = "Person";
+
+}
+
+<!-- Page-header start -->
+
+<!-- Page-header end -->
+<!-- Page-body start -->
+<div class="page-body">
+    <!-- Basic table card start -->
+    <div class="card">
+       
+        <div class="card-block table-border-style">
+           
+            <div class="card-block">
+                <h1 class="sub-title text-center">Professional Details</h1>
+               
+                <div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" asp-for="Name">
+
+                        </label>
+                        <div class="col-sm-10">
+                            <p class="form-control">
+                                @Model.Name
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" asp-for="Age">
+
+                        </label>
+                        <div class="col-sm-10">
+                            <p class="form-control">
+                                @Model.Age
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" asp-for="Location">
+
+                        </label>
+                        <div class="col-sm-10">
+                            <p class="form-control">
+                                @Model.Location
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" asp-for="Experiences">
+
+                        </label>
+                        <div class="col-sm-10">
+                            <p class="form-control">
+                                @Model.Experiences
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" asp-for="Degree">
+
+                        </label>
+                        <div class="col-sm-10">
+                            <p class="form-control">
+                                @Model.Degree
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" asp-for="CareerLevel">
+
+                        </label>
+                        <div class="col-sm-10">
+                            <p class="form-control">
+                                @Model.CareerLevel
+                            </p>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" asp-for="Phone">
+
+                        </label>
+                        <div class="col-sm-10">
+                            <p class="form-control">
+                                @Model.Phone
+                            </p>
+
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" asp-for="Fax">
+
+                        </label>
+                        <div class="col-sm-10">
+                            <p class="form-control">
+                                @Model.Fax
+                            </p>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label class="col-sm-2 col-form-label" asp-for="Website">
+
+                        </label>
+                        <div class="col-sm-10">
+                            <p class="form-control">
+                                @Model.Website
+                            </p>
+
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="form-group row">
+                        <div class="col-sm-12 d-flex justify-content-end">
+
+                            <button class="btn btn-success mr-2">
+                            </button>
+                            <a class="btn btn-info mr-2" asp-action="edit" asp-route-id="@Model.Id">
+                                Edit
+                            </a>
+
+                            <a class="btn btn-info" asp-action="index">
+                                Go Back
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Basic table card end -->

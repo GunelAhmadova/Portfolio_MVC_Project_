@@ -1,0 +1,64 @@
+﻿<nav class="pcoded-navbar">
+    <div class="pcoded-inner-navbar main-menu">
+        <div class="pcoded-navigatio-lavel">Navigation</div>
+
+        <ul class="pcoded-item pcoded-left-item">
+            <li class="">
+                <a asp-controller="home" asp-action="index">
+                    <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                    <span class="pcoded-mtext">Ana sehife</span>
+                </a>
+            </li>
+            <li class="pcoded-hasmenu active pcoded-trigger">
+                <a href="javascript:void(0)">
+                    <span class="pcoded-micon"><i class="feather icon-home"></i></span>
+                    <span class="pcoded-mtext">Məhsul</span>
+                </a>
+                <ul class="pcoded-submenu">
+                    <li class="active">
+                        <a asp-controller="Person" asp-action="Index">
+                            <span class="pcoded-mtext">Person</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a href="default/dashboard-analytics.html">
+                            <span class="pcoded-mtext">Kateqoriyalar</span>
+                            <span class="pcoded-badge label label-info ">NEW</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="default/dashboard-crm.html">
+                            <span class="pcoded-mtext">Rənglər</span>
+                        </a>
+                    </li>
+                    <li class=" ">
+                        <a asp-controller="sizes" asp-action="Index">
+                            <span class="pcoded-mtext">Ölçülər</span>
+                            <span class="pcoded-badge label label-info ">NEW</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a asp-controller="materials" asp-action="Index">
+                            <span class="pcoded-mtext">Materials</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a asp-controller="types" asp-action="Index">
+                            <span class="pcoded-mtext">Types</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a asp-controller="faqs" asp-action="index">
+                            <span class="pcoded-micon"><i class="feather icon-menu"></i></span>
+                            <span class="pcoded-mtext">Faqs</span>
+                        </a>
+                    </li>
+
+                </ul>
+            </li>
+
+
+        </ul>
+
+    </div>
+</nav>

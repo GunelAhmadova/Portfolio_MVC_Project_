@@ -10,7 +10,7 @@ namespace Portfolio.WebUI.ViewModel
     public class PersonProfilesViewModel
     {
         public Person Person { get; set; }
-        public ICollection<Profile> Profiles { get; set; }
+        public ICollection<Social> Profiles { get; set; }
     }
 
     

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.WebUI\\Portfolio.WebUI.csproj": {}
+    "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.WebUI\\Portfolio.WebUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj": {
+    "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj",
         "projectName": "Portfolio.Domain",
-        "projectPath": "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.Domain\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,14 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "MediatR": {
               "target": "Package",
               "version": "[11.0.0, )"
@@ -79,7 +87,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -88,18 +97,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.WebUI\\Portfolio.WebUI.csproj": {
+    "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.WebUI\\Portfolio.WebUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.WebUI\\Portfolio.WebUI.csproj",
+        "projectUniqueName": "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.WebUI\\Portfolio.WebUI.csproj",
         "projectName": "Portfolio.WebUI",
-        "projectPath": "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.WebUI\\Portfolio.WebUI.csproj",
+        "projectPath": "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.WebUI\\Portfolio.WebUI.csproj",
         "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.WebUI\\obj\\",
+        "outputPath": "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.WebUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\user\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -116,8 +125,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj": {
-                "projectPath": "C:\\Users\\user\\source\\repos\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj"
+              "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj": {
+                "projectPath": "C:\\Users\\user\\Desktop\\Portfolio_MVC_Project_\\Portfolio\\Portfolio.Domain\\Portfolio.Domain.csproj"
               }
             }
           }
@@ -175,7 +184,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -187,7 +197,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }

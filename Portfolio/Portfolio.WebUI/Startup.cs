@@ -10,6 +10,7 @@ using Portfolio.Domain.Models.DataContext;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace Portfolio.WebUI
@@ -35,6 +36,7 @@ namespace Portfolio.WebUI
             var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName.StartsWith("Portfolio.")).ToArray();
             
             services.AddMediatR(assemblies);
+            services.AddAutoMapper(assemblies);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

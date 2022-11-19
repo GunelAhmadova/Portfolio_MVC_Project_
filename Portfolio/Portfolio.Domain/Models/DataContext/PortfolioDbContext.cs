@@ -13,7 +13,7 @@ namespace Portfolio.Domain.Models.DataContext
         }
         public DbSet<AcademicBackground> AcademicBackrounds { get; set; }
         public DbSet<Person> People { get; set; }
-        public DbSet<Profile> Profiles { get; set; }
+        public DbSet<Social> Profiles { get; set; }
         public DbSet<Experience> Experiences { get; set; }
 
 

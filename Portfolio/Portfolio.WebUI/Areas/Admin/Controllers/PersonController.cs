@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Domain.AppCode.Bussines.PersonModule;
+using Portfolio.Domain.AppCode.DTOs.PersonDTOs;
 using System.Threading.Tasks;
 
 namespace Portfolio.WebUI.Areas.Admin.Controllers
@@ -25,16 +26,16 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Edit(PersonAllQuery command)
         {
-
             var response = await _mediator.Send(command);
+
             return View(response);
         }   
 
         [HttpPost]
 
-        public async Task<IActionResult> Edit(PersonEditCommand command)
+        public async Task<IActionResult> Edit(PersonDto dto)
         {
-
+            PersonEditCommand command = new() { person=dto };
             var responce = await _mediator.Send(command);
            
             return RedirectToAction(nameof(Index));

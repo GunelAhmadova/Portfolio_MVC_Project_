@@ -20,7 +20,7 @@ namespace Portfolio.Domain.Models
         public string Website { get; set; }
 
 
-        public virtual ICollection<Profile> Profiles { get; set; }
+        public virtual ICollection<Social> Profiles { get; set; }
         public ICollection<Experience> Experiences { get; set; } 
          
 

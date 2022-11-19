@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.Models.DataContext.Configuration
 {
-    internal class ProfileEntityTypeConfiguration : IEntityTypeConfiguration<Profile>
+    internal class ProfileEntityTypeConfiguration : IEntityTypeConfiguration<Social>
     {
-        public void Configure(EntityTypeBuilder<Profile> builder)
+        public void Configure(EntityTypeBuilder<Social> builder)
         {
             builder.Property(pf => pf.ProfileName).IsRequired().HasMaxLength(64);
             builder.Property(pf => pf.Url);

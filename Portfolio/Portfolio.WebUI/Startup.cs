@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -27,16 +29,25 @@ namespace Portfolio.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName
+             .StartsWith("Portfolio."))
+                .ToArray();
+
+
+            services.AddFluentValidationAutoValidation();
+            services.AddValidatorsFromAssemblies(assemblies);
             services.AddControllersWithViews();
 
             services.AddDbContext<PortfolioDbContext>(cfg =>
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("cString"));
             });
-            var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName.StartsWith("Portfolio.")).ToArray();
-            
+              
+            //services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ValidateBehaviour<,>));
             services.AddMediatR(assemblies);
+
             services.AddAutoMapper(assemblies);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,7 +77,7 @@ namespace Portfolio.WebUI
                  pattern: "Admin/{controller=Admin}/{action=Index}/{id?}");
 
                 endpoints.MapControllerRoute(name: "default",
-                        pattern: "{controller=Home}/{action=Index}/{id?}");
+                        pattern: "{controller=Home}/{action=about}/{id?}");
             });
         }
     }

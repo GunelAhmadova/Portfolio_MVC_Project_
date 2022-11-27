@@ -12,5 +12,6 @@ namespace Portfolio.Domain.Models
         public string SkillName { get; set; } 
         public string Description { get; set; } 
         public int Rate { get; set; }
+        public string  SkillType { get; set; }
     }
 }

@@ -19,44 +19,53 @@ namespace Portfolio.Domain.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Portfolio.Domain.Models.Entites.AcademicBackround", b =>
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Background", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("BackgroundLevel")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("BackgroundType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Date")
+                    b.Property<string>("DateRange")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(512)
+                        .HasColumnType("nvarchar(512)");
 
-                    b.Property<string>("Discriminator")
+                    b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Profession")
+                    b.Property<string>("Location")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
-                    b.Property<string>("WorkPlace")
+                    b.Property<string>("Title")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("AcademicBackrounds");
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("AcademicBackround");
+                    b.ToTable("Backgrounds");
                 });
 
             modelBuilder.Entity("Portfolio.Domain.Models.Person", b =>
@@ -69,13 +78,16 @@ namespace Portfolio.Domain.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
+                    b.Property<string>("Bio")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CareerLevel")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 11, 16, 18, 39, 53, 566, DateTimeKind.Utc).AddTicks(4335));
+                        .HasDefaultValue(new DateTime(2022, 11, 27, 15, 32, 41, 127, DateTimeKind.Utc).AddTicks(6245));
 
                     b.Property<string>("Degree")
                         .HasColumnType("nvarchar(max)");
@@ -84,6 +96,9 @@ namespace Portfolio.Domain.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Experiences")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("Fax")
@@ -114,7 +129,7 @@ namespace Portfolio.Domain.Migrations
                             Id = 1,
                             Age = 29,
                             CareerLevel = "Teacher",
-                            CreatedDate = new DateTime(2022, 11, 16, 22, 39, 53, 560, DateTimeKind.Local).AddTicks(2310),
+                            CreatedDate = new DateTime(2022, 11, 27, 19, 32, 41, 124, DateTimeKind.Local).AddTicks(3772),
                             Degree = "Master",
                             Email = "gunelaa@code.edu.az",
                             Location = "Azerbaijan",
@@ -124,7 +139,70 @@ namespace Portfolio.Domain.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Portfolio.Domain.Models.Profile", b =>
+            modelBuilder.Entity("Portfolio.Domain.Models.Service", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2022, 11, 27, 15, 32, 41, 138, DateTimeKind.Utc).AddTicks(4745));
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(512)
+                        .HasColumnType("nvarchar(512)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Skill", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasMaxLength(512)
+                        .HasColumnType("nvarchar(512)");
+
+                    b.Property<int>("Rate")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SkillName")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.Property<string>("SkillType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Skills");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Social", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -141,7 +219,9 @@ namespace Portfolio.Domain.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ProfileName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
 
                     b.Property<string>("Url")
                         .HasColumnType("nvarchar(max)");
@@ -153,22 +233,7 @@ namespace Portfolio.Domain.Migrations
                     b.ToTable("Profiles");
                 });
 
-            modelBuilder.Entity("Portfolio.Domain.Models.Experience", b =>
-                {
-                    b.HasBaseType("Portfolio.Domain.Models.Entites.AcademicBackround");
-
-                    b.Property<string>("Img")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("PersonId")
-                        .HasColumnType("int");
-
-                    b.HasIndex("PersonId");
-
-                    b.HasDiscriminator().HasValue("Experience");
-                });
-
-            modelBuilder.Entity("Portfolio.Domain.Models.Profile", b =>
+            modelBuilder.Entity("Portfolio.Domain.Models.Social", b =>
                 {
                     b.HasOne("Portfolio.Domain.Models.Person", "Person")
                         .WithMany("Profiles")
@@ -179,21 +244,8 @@ namespace Portfolio.Domain.Migrations
                     b.Navigation("Person");
                 });
 
-            modelBuilder.Entity("Portfolio.Domain.Models.Experience", b =>
-                {
-                    b.HasOne("Portfolio.Domain.Models.Person", "Person")
-                        .WithMany("Experiences")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Person");
-                });
-
             modelBuilder.Entity("Portfolio.Domain.Models.Person", b =>
                 {
-                    b.Navigation("Experiences");
-
                     b.Navigation("Profiles");
                 });
 #pragma warning restore 612, 618

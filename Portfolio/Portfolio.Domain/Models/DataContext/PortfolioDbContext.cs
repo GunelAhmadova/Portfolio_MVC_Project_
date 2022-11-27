@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Portfolio.Domain.Models.Entites;
-
+using System.Collections.Generic;
 
 namespace Portfolio.Domain.Models.DataContext
 {
@@ -11,12 +11,11 @@ namespace Portfolio.Domain.Models.DataContext
         {
 
         }
-        public DbSet<AcademicBackground> AcademicBackrounds { get; set; }
         public DbSet<Person> People { get; set; }
         public DbSet<Social> Profiles { get; set; }
-        public DbSet<Experience> Experiences { get; set; }
-
-
+        public DbSet<Service> Services { get; set; }
+        public DbSet<Skill> Skills { get; set; }
+        public DbSet<Background> Backgrounds { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

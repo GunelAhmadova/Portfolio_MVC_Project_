@@ -1,0 +1,156 @@
+﻿
+@model ResumeViewModel
+
+<div role="tabpanel" class="tab-pane fade in active" id="resume">
+    <div class="inside-sec">
+        <!-- BIO AND SKILLS -->
+        <h5 class="tittle">Bio & Skills</h5>
+        <div class="bio-info padding-30">
+            <p>
+                @Model.Person.Bio
+            </p>
+            <div class="skills">
+
+                <!-- HARD SKILLS -->
+                <h5 class="margin-top-30">Hard Skills</h5>
+
+                <!-- Sound Engineering -->
+                <div class="panel-group accordion" id="accordion5">
+                    @foreach (var skill in Model.Skills.Where(s=>s.SkillType=="hard"))
+                    {
+                        <div class="panel panel-default">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <!-- PANEL HEADING -->
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion5" href="#collapseOne5"> @skill.SkillName</a> </h4>
+                                    </div>
+                                </div>
+
+                                <!-- Skillls Bars -->
+                                <div class="col-sm-8">
+                                    <div class="progress">
+                                        @{
+                                            var rate = skill.Rate + "%";
+                                        }
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="@skill.Rate" aria-valuemin="0" aria-valuemax="100" style="width: @rate;"> <span class="sr-only">@skill.Rate % Complete</span> </div>
+                                    </div>
+
+                                    <!-- Skillls Text -->
+                                    <div id="collapseOne5" class="panel-collapse collapse in">
+                                        <div class="panel-body">
+                                            <p>@skill.Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+
+                <!-- Soft Skills -->
+                <h5 class="margin-top-30">Soft Skills</h5>
+
+                <!-- Application of knowledge -->
+                <div class="panel-group accordion" id="accordion1">
+                    @foreach (var item in Model.Skills.Where(s=>s.SkillType=="soft"))
+                    {
+                        <div class="panel panel-default">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <!-- PANEL HEADING -->
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title"> <a data-toggle="collapse" data-parent="#accordion1" href="#collapsethr" class="collapsed"> @item.SkillName</a> </h4>
+                                    </div>
+                                </div>
+
+                                <!-- Skillls Bars -->
+                                <div class="col-sm-8">
+                                    <div class="progress">
+                                        @{
+                                            var rate = item.Rate + "%";
+                                        }
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="@item.Rate" aria-valuemin="0" aria-valuemax="100" style="width: @rate;"> <span class="sr-only">@item.Rate % Complete</span> </div>
+                                    </div>
+
+                                    <!-- Skillls Text -->
+                                    <div id="collapsethr" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>@item.Description</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <!-- Follow ethical -->
+                <div class="ethical">
+                    <h6>Follow ethical work practices</h6>
+                    <a href="#.">Prioritize Learning Tasks</a> <a href="#.">Make Ethical Choices</a> <a href="#.">Social Work</a> <a href="#.">Community Work</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Professional Experience -->
+    <div class="inside-sec margin-top-30">
+        <!-- Professional Experience -->
+        <h5 class="tittle">Professional Experience</h5>
+        <div class="padding-30 exp-history">
+
+            <!-- Wordpress Developer -->
+            @foreach (var item in Model.Backgrounds.Where(a=>a.BackgroundType=="professional"))
+            {
+
+                <div class="exp">
+                    <div class="media-left"> <span class="sun">@item.DateRange</span> </div>
+                    <div class="media-body">
+
+                        <!-- COmpany Logo -->
+                        <div class="company-logo"> @item.ImageUrl </div>
+                        <h6> @item.Title</h6>
+                        <p>@item.BackgroundLevel</p>
+                        <p>@item.Location</p>
+                        <p class="margin-top-10"> @item.Description <a href="#.">Read More</a> </p>
+                    </div>
+                </div>
+            }
+
+
+
+        </div>
+    </div>
+
+    <!-- Academic Background -->
+    <div class="inside-sec margin-top-30">
+        <!-- Academic Background -->
+        <h5 class="tittle">Academic Background</h5>
+        <div class="padding-30 exp-history">
+
+            <!-- Wordpress Developer -->
+            @foreach (var item in Model.Backgrounds.Where(a=>a.BackgroundType=="academic"))
+            {
+                <div class="exp">
+                    <div class="media-left"> <span class="sun">@item.DateRange</span> </div>
+                    <div class="media-body">
+                        <!-- COmpany Logo -->
+                        <div class="company-logo"> <span class="diploma"><i class="fa fa-graduation-cap"></i>@item.ImageUrl</span> </div>
+                        <h6> @item.Title</h6>
+                        <p>@item.BackgroundLevel</p>
+                        <p>@item.Location</p>
+                        <p class="margin-top-10"> @item.Description <a href="#.">Read More</a> </p>
+                    </div>
+                </div>
+            }
+
+
+
+          
+        </div>
+    </div>
+</div>
+

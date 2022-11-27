@@ -15,8 +15,8 @@ namespace Portfolio.Domain.AppCode.Bussines.PersonModule
 {
     public class PersonEditCommand: IRequest<PersonDto>
     {
-        public PersonDto person; 
-        
+        public PersonDto person;
+
         public class PersonEditCommandHandler : IRequestHandler<PersonEditCommand, PersonDto>
         {
 

@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace Portfolio.WebUI.ViewComponents
 {
     public class Blog: ViewComponent
-    { 
+    {  
+
         public IViewComponentResult Invoke()
         {
             return View();

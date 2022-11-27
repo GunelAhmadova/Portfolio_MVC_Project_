@@ -11,9 +11,13 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
     {
         private readonly IMediator _mediator;
 
+        //private readonly IValidator<PersonEditCommand> personEditCommandValidator;
+
+
         public PersonController(IMediator mediator)
         {
             _mediator = mediator;
+            //this.personEditCommandValidator = personEditCommandValidator;
         }
 
         public async Task<IActionResult> Index()
@@ -25,7 +29,7 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
 
 
         public async Task<IActionResult> Edit(PersonAllQuery command)
-        {
+        {  
             var response = await _mediator.Send(command);
 
             return View(response);
@@ -35,6 +39,7 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Edit(PersonDto dto)
         {
+            if (!ModelState.IsValid) return View(dto);
             PersonEditCommand command = new() { person=dto };
             var responce = await _mediator.Send(command);
            

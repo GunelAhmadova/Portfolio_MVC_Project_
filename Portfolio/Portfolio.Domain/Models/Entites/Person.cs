@@ -18,10 +18,9 @@ namespace Portfolio.Domain.Models
         public string CareerLevel { get; set; }
         public string Email { get; set; }
         public string Website { get; set; }
-
-
+        public string Experiences { get; set; }
+        public string Bio { get; set; }
         public virtual ICollection<Social> Profiles { get; set; }
-        public ICollection<Experience> Experiences { get; set; } 
          
 
          

@@ -46,6 +46,11 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Edit(BackgroundSingleQuery query)
         {
+
+
+            ViewBag.BackList = (IEnumerable<string>)Enum.GetNames(typeof(BackgroundType));
+            ViewBag.AcademicTypes = (IEnumerable<string>)Enum.GetNames(typeof(Academiclevel));
+            ViewBag.ProLevels = (IEnumerable<string>)Enum.GetNames(typeof(ProLevel));
             var response = await mediator.Send(query);
             if (response == null) return NotFound();
 
@@ -57,6 +62,7 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
         public async Task<IActionResult> Edit(BackgroundEditCommand command)
         {
             if (!ModelState.IsValid) return View(command);
+
             var data = await mediator.Send(command);
             if (data == null)
             {

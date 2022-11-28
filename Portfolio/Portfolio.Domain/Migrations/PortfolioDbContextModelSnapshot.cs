@@ -68,6 +68,62 @@ namespace Portfolio.Domain.Migrations
                     b.ToTable("Backgrounds");
                 });
 
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Portfolia", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProjectLink")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(64)
+                        .HasColumnType("nvarchar(64)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("Portfolias");
+                });
+
             modelBuilder.Entity("Portfolio.Domain.Models.Person", b =>
                 {
                     b.Property<int>("Id")
@@ -87,7 +143,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 11, 27, 15, 32, 41, 127, DateTimeKind.Utc).AddTicks(6245));
+                        .HasDefaultValue(new DateTime(2022, 11, 28, 20, 24, 17, 775, DateTimeKind.Utc).AddTicks(1175));
 
                     b.Property<string>("Degree")
                         .HasColumnType("nvarchar(max)");
@@ -129,7 +185,7 @@ namespace Portfolio.Domain.Migrations
                             Id = 1,
                             Age = 29,
                             CareerLevel = "Teacher",
-                            CreatedDate = new DateTime(2022, 11, 27, 19, 32, 41, 124, DateTimeKind.Local).AddTicks(3772),
+                            CreatedDate = new DateTime(2022, 11, 29, 0, 24, 17, 772, DateTimeKind.Local).AddTicks(1537),
                             Degree = "Master",
                             Email = "gunelaa@code.edu.az",
                             Location = "Azerbaijan",
@@ -149,7 +205,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 11, 27, 15, 32, 41, 138, DateTimeKind.Utc).AddTicks(4745));
+                        .HasDefaultValue(new DateTime(2022, 11, 28, 20, 24, 17, 788, DateTimeKind.Utc).AddTicks(5515));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
@@ -233,6 +289,17 @@ namespace Portfolio.Domain.Migrations
                     b.ToTable("Profiles");
                 });
 
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Portfolia", b =>
+                {
+                    b.HasOne("Portfolio.Domain.Models.Entites.Category", "Category")
+                        .WithMany("Portfolias")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+                });
+
             modelBuilder.Entity("Portfolio.Domain.Models.Social", b =>
                 {
                     b.HasOne("Portfolio.Domain.Models.Person", "Person")
@@ -242,6 +309,11 @@ namespace Portfolio.Domain.Migrations
                         .IsRequired();
 
                     b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Category", b =>
+                {
+                    b.Navigation("Portfolias");
                 });
 
             modelBuilder.Entity("Portfolio.Domain.Models.Person", b =>

@@ -19,6 +19,9 @@ namespace Portfolio.Domain.Models.Entites
         public string BackgroundType { get; set; }
         public string BackgroundLevel { get; set; }
 
+        [NotMapped]
+        public IFormFile ImageFile { get; set; }
+
 
     }
 }

@@ -25,7 +25,8 @@ namespace Portfolio.Domain.AppCode.Bussines.BackgroundModule
 
         public IFormFile ImageFile { get; set; }
         public string Location { get; set; }
-        public string BackgroundType { get; set; }
+        public string BackgroundType { get; set; } 
+        public string ImageUrl { get; set; }
 
         public class BackgroundEditCommandHandler : IRequestHandler<BackgroundEditCommand, Background>
         {
@@ -50,13 +51,31 @@ namespace Portfolio.Domain.AppCode.Bussines.BackgroundModule
                     return null;
                 }
 
+
+                data.Id = request.Id;
                 data.Title = request.Title;
                 data.Description = request.Description;
                 data.DateRange = request.DateRange;
                 data.Location = request.Location;
                 data.BackgroundType = request.BackgroundType;
-
+                data.BackgroundLevel = request.BackgroundLevel;
               
+
+
+                if (request.ImageFile is not null)
+                {
+                    string extension = Path.GetExtension(request.ImageFile.FileName);//.jpg,.jpeg,
+                    string newName = Guid.NewGuid().ToString();
+                    data.ImageUrl = newName + extension;
+                    string fullname = Path.Combine(hostEnvironment.ContentRootPath, "wwwroot", "uploads", "images", data.ImageUrl);
+
+                    using (var fs = new FileStream(fullname, FileMode.Create, FileAccess.Write))
+                    {
+                        request.ImageFile.CopyTo(fs);
+                    }
+
+                }
+
 
 
                 await db.SaveChangesAsync(cancellationToken);

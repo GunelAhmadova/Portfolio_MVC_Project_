@@ -17,7 +17,7 @@ namespace Portfolio.WebUI.ViewModel
         public ICollection<Skill> Skills { get; set; } 
    
 
-
+        
 
 
     }

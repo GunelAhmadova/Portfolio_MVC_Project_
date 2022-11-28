@@ -5,7 +5,8 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
     [Area("Admin")]
     public class AcademicBackgroundController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Index() 
+
         {
             return View();
         }

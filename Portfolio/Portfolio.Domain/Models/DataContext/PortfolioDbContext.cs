@@ -16,6 +16,10 @@ namespace Portfolio.Domain.Models.DataContext
         public DbSet<Service> Services { get; set; }
         public DbSet<Skill> Skills { get; set; }
         public DbSet<Background> Backgrounds { get; set; }
+        public DbSet<Portfolia> Portfolias { get; set; }
+        public DbSet<Category> Categories { get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

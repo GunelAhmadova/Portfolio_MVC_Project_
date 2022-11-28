@@ -1,4 +1,4 @@
-﻿@model BackgroundEditCommand
+﻿@model Background
 
 @{
     ViewData["Title"] = "Edit";
@@ -46,7 +46,7 @@
 
             <div class="card-block">
 
-                <form method="post" asp-action="create" enctype="multipart/form-data">
+                <form method="post" asp-action="edit" enctype="multipart/form-data">
 
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label" asp-for="Title">

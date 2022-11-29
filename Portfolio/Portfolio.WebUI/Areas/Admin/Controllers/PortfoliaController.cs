@@ -29,7 +29,7 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
 
         public async Task <IActionResult> Create()
         {
-            CategoryAllQuery query = new();
+            CategoryAllQuery query=new();
             var categories = await mediator.Send(query);
 
 

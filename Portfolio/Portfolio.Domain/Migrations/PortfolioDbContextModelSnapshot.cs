@@ -19,6 +19,46 @@ namespace Portfolio.Domain.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Portfolio.Domain.Models.BlogPost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PublishDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Slug")
+                        .IsUnique();
+
+                    b.ToTable("BlogPosts");
+                });
+
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Background", b =>
                 {
                     b.Property<int>("Id")
@@ -143,7 +183,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 11, 28, 20, 24, 17, 775, DateTimeKind.Utc).AddTicks(1175));
+                        .HasDefaultValue(new DateTime(2022, 11, 29, 14, 49, 33, 168, DateTimeKind.Utc).AddTicks(4538));
 
                     b.Property<string>("Degree")
                         .HasColumnType("nvarchar(max)");
@@ -185,7 +225,7 @@ namespace Portfolio.Domain.Migrations
                             Id = 1,
                             Age = 29,
                             CareerLevel = "Teacher",
-                            CreatedDate = new DateTime(2022, 11, 29, 0, 24, 17, 772, DateTimeKind.Local).AddTicks(1537),
+                            CreatedDate = new DateTime(2022, 11, 29, 18, 49, 33, 164, DateTimeKind.Local).AddTicks(5687),
                             Degree = "Master",
                             Email = "gunelaa@code.edu.az",
                             Location = "Azerbaijan",
@@ -205,7 +245,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 11, 28, 20, 24, 17, 788, DateTimeKind.Utc).AddTicks(5515));
+                        .HasDefaultValue(new DateTime(2022, 11, 29, 14, 49, 33, 174, DateTimeKind.Utc).AddTicks(2508));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");

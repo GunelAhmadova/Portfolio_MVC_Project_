@@ -1,8 +1,10 @@
-﻿using MediatR;
+﻿using BigOn.Domain.Business.CategoryModule;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Portfolio.Domain.AppCode.Bussines.BackgroundModule;
 using Portfolio.Domain.AppCode.Bussines.PersonModule;
+using Portfolio.Domain.AppCode.Bussines.PortfoliaModule;
 using Portfolio.Domain.AppCode.Bussines.ServiceModule;
 using Portfolio.Domain.AppCode.Bussines.SkillModule;
 using Portfolio.Domain.AppCode.DTOs.ServiceDTOs;
@@ -54,7 +56,21 @@ namespace Portfolio.WebUI.Controllers
         public IActionResult Contact()
         {
             return View();
+        } 
+
+
+        public async Task <IActionResult> Portfolia()
+        {
+            CategoryPortfoliaViewModel vm = new();
+            CategoryAllQuery query = new();
+            PortfoliaAllQuery Squery = new();
+            vm.Categories = (ICollection<Category>)await mediator.Send(query);
+            vm.Portfolias = (ICollection<Portfolia>)await mediator.Send(Squery);
+
+            return View(vm);
         }
+
+
 
 
 

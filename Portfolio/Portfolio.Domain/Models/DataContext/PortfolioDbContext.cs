@@ -18,7 +18,7 @@ namespace Portfolio.Domain.Models.DataContext
         public DbSet<Background> Backgrounds { get; set; }
         public DbSet<Portfolia> Portfolias { get; set; }
         public DbSet<Category> Categories { get; set; }
-
+        public DbSet<BlogPost> BlogPosts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

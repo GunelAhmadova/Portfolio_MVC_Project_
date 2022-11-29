@@ -1,0 +1,62 @@
+﻿@model CategoryPortfoliaViewModel
+
+
+@{
+    ViewData["Title"] = "Portfolia";
+}
+
+<div role="tabpanel" class="tab-pane fade in active" id="portfolio">
+    <div class="inside-sec">
+        <!-- BIO AND SKILLS -->
+        <h5 class="tittle">PORTFOLIO</h5>
+
+        <!-- PORTFOLIO -->
+        <section class="portfolio padding-top-50 padding-bottom-50">
+            <!-- Work Filter -->
+            <ul class="tabs portfolio-filter text-center margin-bottom-30">
+                <li class="filter" data-filter="all">all</li> 
+                @foreach (var item in Model.Categories)
+                {
+                    <li class="filter" data-filter="@item.Name.ToLower()  ">@item.Name
+                
+                </li>
+                }
+
+                @*<li class="filter" data-filter=".brand">Branding</li>
+                <li class="filter" data-filter=".design">designing</li>
+                <li class="filter" data-filter=".photo">photography</li>
+                <li class="filter" data-filter=".visual">visual design</li>*@
+            </ul>
+
+            <!-- PORTFOLIO ITEMS -->
+            <div id="Container" class="item-space row col-3">
+
+                <!-- ITEM -->
+
+
+                @foreach (var port in Model.Portfolias)
+                {
+
+                    <article class="portfolio-item mix pf-web-design" data-filter="@port.Category.Name.ToLower()" >
+                        <div class="portfolio-image">
+                            <a href="#."> <img class="img-responsive" alt="Open Imagination" src="~/uploads/images/@port.ImageUrl"> </a>
+                            <div class="portfolio-overlay style-4">
+                                <div class="detail-info">
+                                    <div class="position-center-center">
+                                        <h3 class="no-margin">@port.Title</h3>
+                                        <span><a href="@port.ProjectLink"> @port.ProjectLink</a></span> <a href="#." class="go"><i class="fa fa-search"></i></a> <a href="@port.ProjectLink" class="go"><i class="fa fa-link"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+
+                }
+
+             
+            </div>
+        </section>
+    </div>
+</div>
+

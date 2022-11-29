@@ -377,3 +377,10 @@ C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Portfolia\Edit.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Portfolia\Index.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Portfolia\_ListBody.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Home\Portfolia.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\BlogPost\Create.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\BlogPost\Detail.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\BlogPost\Edit.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\BlogPost\Index.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\BlogPost\_ListBody.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\BlogPost\Index.cshtml.g.cs

@@ -132,8 +132,8 @@
                         <li role="presentation" class="active"><a asp-controller="home" asp-action="about"><i class="icon-user"></i> ABOUT ME</a></li>
                         <li role="presentation"><a asp-controller="home" asp-action="resume"><i class="icon-book-open"></i>RESUME</a></li>
                         @*<li role="presentation"><a href="#resume" aria-controls="resume" role="tab" data-toggle="tab"><i class="icon-book-open"></i>RESUME</a></li>*@
-                        <li role="presentation"><a href="#portfolio" aria-controls="portfolio" role="tab" data-toggle="tab"><i class="icon-rocket"></i>PORTFOLIO</a></li>
-                        <li role="presentation"><a href="#blog" aria-controls="blog" role="tab" data-toggle="tab"><i class="icon-note"></i>BLOG</a></li>
+                        <li role="presentation"><a asp-controller="home" asp-action="portfolia"><i class="icon-rocket"></i>PORTFOLIO</a></li>
+                        <li role="presentation"><a asp-controller="blogpost" asp-action="index" ><i class="icon-note"></i>BLOG</a></li>
                         <li role="presentation"><a asp-controller="Home" asp-action="Contact"> <i class="icon-pencil"></i>CONTACT ME</a></li>
                         @*<li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab"> <i class="icon-pencil"></i>CONTACT ME</a></li>*@
                     </ul>

@@ -1,6 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Hosting;
+using Portfolio.Domain.AppCode.Extension;
 using Portfolio.Domain.Models.DataContext;
 using Portfolio.Domain.Models.Entites;
 using System;
@@ -17,10 +18,11 @@ namespace Portfolio.Domain.AppCode.Bussines.PortfoliaModule
     {
 
         public string Title { get; set; }
-        public IFormFile ImageFile { get; set; }
+      
         public string ProjectLink { get; set; } 
-        public int CategoryId { get; set; }
+        public int CategoryId { get; set; } 
 
+        public IFormFile ImageFile { get; set; }
 
         public class PortfoliaCreateCommandHandler : IRequestHandler<PortfoliaCreateCommand, Portfolia>
         {
@@ -39,15 +41,17 @@ namespace Portfolio.Domain.AppCode.Bussines.PortfoliaModule
                 {
                     Title = request.Title,
                     ProjectLink = request.ProjectLink,
-                    CategoryId = request.CategoryId
+                    CategoryId = request.CategoryId,
+                   
+                    
                 };
 
 
                 string extension = Path.GetExtension(request.ImageFile.FileName);//.jpg,.jpeg,
                 string newName = Guid.NewGuid().ToString();
                 portfolia.ImageUrl = newName + extension;
-                string fullname = Path.Combine(hostEnvironment.ContentRootPath, "wwwroot", "uploads", "images", portfolia.ImageUrl);
-
+                //string fullname = Path.Combine(hostEnvironment.ContentRootPath, "wwwroot", "uploads", "images", portfolia.ImageUrl);
+                string fullname = hostEnvironment.GetImagePhysicalPath(newName);
                 using (var fs = new FileStream(fullname, FileMode.Create, FileAccess.Write))
                 {
                     request.ImageFile.CopyTo(fs);

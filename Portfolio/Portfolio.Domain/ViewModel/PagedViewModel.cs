@@ -33,7 +33,7 @@ namespace Portfolio.Domain.ViewModel
             {
                 this.TotalCount = query.Count();
                 this.PageSize = size;
-
+                    
                 if (this.MaxPageCount < page)
                 {
                     this.PageIndex = this.MaxPageCount < 1 ? 1 : this.MaxPageCount;
@@ -53,13 +53,14 @@ namespace Portfolio.Domain.ViewModel
 
             public HtmlString GetPager(IUrlHelper urlHelper, string action, string area = "", string paginateFunction = "")
             {
+
                 if (this.PageSize >= TotalCount)
                     return HtmlString.Empty;
 
                 var builder = new StringBuilder();
                 bool hasPaginationFunction = !string.IsNullOrWhiteSpace(paginateFunction);
 
-                builder.Append($"<ul class='blog-pagination ptb-20' data-page='{this.PageIndex}' data-size='{this.PageSize}'>");
+                builder.Append($"<ul class='blog-pagination pagination ptb-20' data-page='{this.PageIndex}' data-size='{this.PageSize}'>");
 
                 if (this.PageIndex > 1)
                 {

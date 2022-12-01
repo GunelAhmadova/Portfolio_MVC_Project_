@@ -20,7 +20,7 @@ namespace Portfolio.Domain.Business.BlogPostModule
             get
             {
                 if (base.PageSize < 9)
-                    base.PageSize = 9;
+                    base.PageSize = 3;
 
                 return base.PageSize;
             }
@@ -40,6 +40,8 @@ namespace Portfolio.Domain.Business.BlogPostModule
                 var query = db.BlogPosts
                  .Where(m => m.DeletedDate == null)
                  .AsQueryable();
+            
+                    
 
                 query = query.OrderByDescending(m => m.PublishDate);
 

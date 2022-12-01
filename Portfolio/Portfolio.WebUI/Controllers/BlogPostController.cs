@@ -1,10 +1,8 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.Domain.AppCode.Extension;
 using Portfolio.Domain.Business.BlogPostModule;
 using Portfolio.Domain.Models.DataContext;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Portfolio.WebUI.Controllers
@@ -24,7 +22,10 @@ namespace Portfolio.WebUI.Controllers
         public async Task<IActionResult> Index(BlogPostPagedQuery query)
         {
             var response = await mediator.Send(query);
-
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_BlogsPartialView", response);
+            }
             return View(response);
         }
     }

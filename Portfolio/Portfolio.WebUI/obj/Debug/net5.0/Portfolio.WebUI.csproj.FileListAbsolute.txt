@@ -323,8 +323,6 @@ C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.TagHelpers.input.cache
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.TagHelpers.output.cache
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.RazorCoreGenerate.cache
-C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Account\Login.cshtml.g.cs
-C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Account\Register.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Admin\Index.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Background\Create.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Background\Detail.cshtml.g.cs
@@ -384,3 +382,6 @@ C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\BlogPost\Index.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\BlogPost\_ListBody.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\BlogPost\Index.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_BlogsPartialView.cshtml.g.cs

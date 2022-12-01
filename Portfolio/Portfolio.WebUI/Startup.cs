@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Portfolio.Domain.Models.DataContext;
+using Portfolio.Domain.Models.Entites.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,7 +43,11 @@ namespace Portfolio.WebUI
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("cString"));
             });
-              
+            services.AddIdentity<AppUser, AppRole>(con =>
+            {
+                con.Password.RequiredLength = 8;
+            }).AddEntityFrameworkStores<PortfolioDbContext>();
+
             //services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ValidateBehaviour<,>));
             services.AddMediatR(assemblies);
 
@@ -67,7 +72,7 @@ namespace Portfolio.WebUI
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Portfolio.Domain.Models.Entites;
 using Portfolio.Domain.Models.Entites.Identity;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Portfolio.Domain.Models.DataContext
 {
-    public class PortfolioDbContext: IdentityDbContext<AppUser,AppRole,string>
+    public class  PortfolioDbContext: IdentityDbContext<AppUser, AppRole, string, AppUserClaim, AppUserRole, AppUserLogin, AppRoleClaim, AppUserToken>
     {
         public PortfolioDbContext(DbContextOptions options)
             :base(options)

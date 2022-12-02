@@ -40,8 +40,15 @@ using Portfolio.Domain.ViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Views\_ViewImports.cshtml"
+using Portfolio.Domain.AppCode.Bussines.AccountModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f41ea6492dec38ab77bf609a6bd6d35af69bcd2f", @"/Views/Shared/Components/PersonProfiles/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"954ec9309e585cee2bc14810bde7c09664f5a347", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2757339048d6345580f9112a986c001662aa70e8", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_PersonProfiles_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PersonProfilesViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/assets/images/avatar.jpg"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -81,7 +88,7 @@ using Portfolio.Domain.ViewModel;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<div class=\"side-bar\">\r\n\r\n    <!-- Professional Details -->\r\n    <h5 class=\"tittle\">Professional Details</h5>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f41ea6492dec38ab77bf609a6bd6d35af69bcd2f7634", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f41ea6492dec38ab77bf609a6bd6d35af69bcd2f7867", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -177,7 +184,7 @@ using Portfolio.Domain.ViewModel;
 #line hidden
 #nullable disable
             WriteLiteral("</a></p>\r\n        </li>\r\n    </ul>\r\n\r\n    <!-- Attachments -->\r\n    <h5 class=\"tittle\">Attachments</h5>\r\n    <div class=\"attach bor-btm padding-25\">\r\n        <ul>\r\n            <li>\r\n                <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f41ea6492dec38ab77bf609a6bd6d35af69bcd2f12926", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f41ea6492dec38ab77bf609a6bd6d35af69bcd2f13159", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -192,7 +199,7 @@ using Portfolio.Domain.ViewModel;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(" Curriculum-Vitae.pdf <a href=\"#.\"><i class=\"fa fa-cloud-download\"></i></a> <a href=\"#.\"><i class=\"fa fa-eye\"></i></a></p>\r\n            </li>\r\n            <li>\r\n                <p>");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f41ea6492dec38ab77bf609a6bd6d35af69bcd2f14231", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "f41ea6492dec38ab77bf609a6bd6d35af69bcd2f14464", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -267,7 +274,7 @@ WriteAttributeValue("", 2117, item.ProfileName, 2117, 17, false);
 
         <!-- FORM -->
         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f41ea6492dec38ab77bf609a6bd6d35af69bcd2f17577", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "f41ea6492dec38ab77bf609a6bd6d35af69bcd2f17810", async() => {
                 WriteLiteral(@"
             <ul class=""row"">
                 <li class=""col-sm-12"">

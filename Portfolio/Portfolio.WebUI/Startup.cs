@@ -4,10 +4,13 @@ using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+
 using Portfolio.Domain.Models.DataContext;
 using Portfolio.Domain.Models.Entites.Identity;
 using System;
@@ -51,7 +54,16 @@ namespace Portfolio.WebUI
             //services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ValidateBehaviour<,>));
             services.AddMediatR(assemblies);
 
-            services.AddAutoMapper(assemblies);
+            services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+
+            services.AddScoped<UserManager<AppUser>>();
+            services.AddScoped<SignInManager<AppUser>>();
+            services.AddScoped<RoleManager<AppRole>>();
+
+
+            services.AddAuthentication();
+            services.AddAuthorization();
+
 
         }
 

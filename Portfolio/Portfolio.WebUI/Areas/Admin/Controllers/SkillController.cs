@@ -38,7 +38,7 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
 
         public async Task<IActionResult> Create(SkillCreateCommand command) 
         {
-            if (!ModelState.IsValid) return View(command);
+           
             var response = await mediator.Send(command);
 
             if (response == null)
@@ -63,7 +63,7 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
 
         public async Task <IActionResult> Edit(SkillEditCommand command)
         {
-            if (!ModelState.IsValid) return View(command);
+            
             var data = await mediator.Send(command);
             if (data == null)
             {

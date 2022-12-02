@@ -42,41 +42,27 @@ using Portfolio.Domain.Models;
 #nullable disable
 #nullable restore
 #line 6 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
-using Portfolio.Domain.AppCode.DTOs.ServiceDTOs;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 7 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
-using Portfolio.Domain.AppCode.DTOs.PersonDTOs;
-
-#line default
-#line hidden
-#nullable disable
-#nullable restore
-#line 8 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
 using Portfolio.Domain.AppCode.Bussines.SkillModule;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
+#line 7 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
 using Portfolio.Domain.AppCode.Bussines.BackgroundModule;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
+#line 8 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Areas\Admin\Views\_ViewImports.cshtml"
 using Portfolio.Domain.ViewModel;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"025816d27d7bd5b32ff3bde929d9283abf29b0eb", @"/Areas/Admin/Views/Shared/SideBar.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5a1129021c77d20048131ef1b06b59065dbf613e", @"/Areas/Admin/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"350649e168786d1220477cd223b5b782ccca90d4", @"/Areas/Admin/Views/_ViewImports.cshtml")]
     public class Areas_Admin_Views_Shared_SideBar : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "home", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -117,7 +103,7 @@ using Portfolio.Domain.ViewModel;
             BeginWriteAttribute("class", " class=\"", 208, "\"", 216, 0);
             EndWriteAttribute();
             WriteLiteral(">\r\n                ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb8337", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb7859", async() => {
                 WriteLiteral("\r\n                    <span class=\"pcoded-micon\"><i class=\"feather icon-menu\"></i></span>\r\n                    <span class=\"pcoded-mtext\">Ana sehife</span>\r\n                ");
             }
             );
@@ -144,7 +130,7 @@ using Portfolio.Domain.ViewModel;
                 <ul class=""pcoded-submenu"">
                     <li class=""active"">
                         ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb10302", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb9824", async() => {
                 WriteLiteral("\r\n                            <span class=\"pcoded-mtext\">Person</span>\r\n                        ");
             }
             );
@@ -162,7 +148,7 @@ using Portfolio.Domain.ViewModel;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </li>\r\n                    <li class=\" \">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb11853", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb11374", async() => {
                 WriteLiteral("\r\n                            <span class=\"pcoded-mtext\">Services</span>\r\n                           \r\n                        ");
             }
             );
@@ -183,7 +169,7 @@ using Portfolio.Domain.ViewModel;
             BeginWriteAttribute("class", " class=\"", 1336, "\"", 1344, 0);
             EndWriteAttribute();
             WriteLiteral(">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb13567", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb13088", async() => {
                 WriteLiteral("\r\n                            <span class=\"pcoded-mtext\">Skills</span>\r\n                        ");
             }
             );
@@ -201,7 +187,7 @@ using Portfolio.Domain.ViewModel;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    </li>\r\n                    <li class=\" \">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb15118", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb14639", async() => {
                 WriteLiteral("\r\n                            <span class=\"pcoded-mtext\">Backgrounds</span>\r\n");
                 WriteLiteral("                        ");
             }
@@ -223,7 +209,7 @@ using Portfolio.Domain.ViewModel;
             BeginWriteAttribute("class", " class=\"", 1910, "\"", 1918, 0);
             EndWriteAttribute();
             WriteLiteral(">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb16839", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb16360", async() => {
                 WriteLiteral("\r\n                            <span class=\"pcoded-mtext\">Categories</span>\r\n                        ");
             }
             );
@@ -244,7 +230,7 @@ using Portfolio.Domain.ViewModel;
             BeginWriteAttribute("class", " class=\"", 2150, "\"", 2158, 0);
             EndWriteAttribute();
             WriteLiteral(">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb18524", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb18045", async() => {
                 WriteLiteral("\r\n                            <span class=\"pcoded-mtext\">Portfolias</span>\r\n                        ");
             }
             );
@@ -265,7 +251,7 @@ using Portfolio.Domain.ViewModel;
             BeginWriteAttribute("class", " class=\"", 2391, "\"", 2399, 0);
             EndWriteAttribute();
             WriteLiteral(">\r\n                        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb20209", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "025816d27d7bd5b32ff3bde929d9283abf29b0eb19730", async() => {
                 WriteLiteral("\r\n                            <span class=\"pcoded-micon\"><i class=\"feather icon-menu\"></i></span>\r\n                            <span class=\"pcoded-mtext\">Blog</span>\r\n                        ");
             }
             );

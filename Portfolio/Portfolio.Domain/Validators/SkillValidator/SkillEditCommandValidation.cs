@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.Validators.SkillValidator
 {
-    public class SkillEditValidation : AbstractValidator<SkillEditCommand>
+    public class SkillEditCommandValidation : AbstractValidator<SkillEditCommand>
     {
-        public SkillEditValidation()
+        public SkillEditCommandValidation()
         {
             RuleFor(sl => sl.SkillName).NotEmpty().MaximumLength(64);
             RuleFor(sl => sl.Description).NotEmpty().MaximumLength(512);

@@ -15,7 +15,7 @@ namespace Portfolio.Domain.Validators.AccountValidation
         {
             RuleFor(a => a.Email).NotNull();
             RuleFor(a => a.Password).NotEmpty();
-            RuleFor(a => a.UserName).NotEmpty();
+           
         }
     }
 }

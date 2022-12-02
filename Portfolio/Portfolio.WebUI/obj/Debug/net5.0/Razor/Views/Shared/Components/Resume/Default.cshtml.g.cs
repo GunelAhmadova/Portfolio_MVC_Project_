@@ -40,8 +40,15 @@ using Portfolio.Domain.ViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Views\_ViewImports.cshtml"
+using Portfolio.Domain.AppCode.Bussines.AccountModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"abcb6e9f49d712a20752ffd423baeaa673c539ce", @"/Views/Shared/Components/Resume/Default.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"954ec9309e585cee2bc14810bde7c09664f5a347", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2757339048d6345580f9112a986c001662aa70e8", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Components_Resume_Default : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("src", new global::Microsoft.AspNetCore.Html.HtmlString("~/assets/images/company-logo-1.jpg"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -210,7 +217,7 @@ using Portfolio.Domain.ViewModel;
 
             <!-- Wordpress Developer -->");
             WriteLiteral("\r\n            <div class=\"exp\">\r\n                <div class=\"media-left\"> <span class=\"sun\">2002 - 2008</span> </div>\r\n                <div class=\"media-body\">\r\n\r\n                    <!-- COmpany Logo -->\r\n                    <div class=\"company-logo\"> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "abcb6e9f49d712a20752ffd423baeaa673c539ce12875", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "abcb6e9f49d712a20752ffd423baeaa673c539ce13108", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -239,7 +246,7 @@ using Portfolio.Domain.ViewModel;
 
                     <!-- COmpany Logo -->
                     <div class=""company-logo""> ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "abcb6e9f49d712a20752ffd423baeaa673c539ce14795", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "abcb6e9f49d712a20752ffd423baeaa673c539ce15028", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();

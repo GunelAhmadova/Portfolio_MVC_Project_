@@ -40,8 +40,15 @@ using Portfolio.Domain.ViewModel;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 6 "C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Views\_ViewImports.cshtml"
+using Portfolio.Domain.AppCode.Bussines.AccountModule;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2d57ca3368bd375b0f44a5544bff4103222bf5cf", @"/Views/BlogPost/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"954ec9309e585cee2bc14810bde7c09664f5a347", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2757339048d6345580f9112a986c001662aa70e8", @"/Views/_ViewImports.cshtml")]
     public class Views_BlogPost_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PagedViewModel<BlogPost>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("name", "_BlogsPartialView", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -78,7 +85,7 @@ using Portfolio.Domain.ViewModel;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n<div role=\"tabpanel\" class=\"tab-pane fade in active\" id=\"blog\">\r\n    <div class=\"inside-sec\">\r\n        <!-- BIO AND SKILLS -->\r\n        <h5 class=\"tittle\">BLOG</h5>\r\n\r\n        <!-- Blog -->\r\n        <div id=\"dynamic-body\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2d57ca3368bd375b0f44a5544bff4103222bf5cf4378", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "2d57ca3368bd375b0f44a5544bff4103222bf5cf4611", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

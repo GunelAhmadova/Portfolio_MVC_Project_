@@ -7,7 +7,6 @@ using Portfolio.Domain.AppCode.Bussines.PersonModule;
 using Portfolio.Domain.AppCode.Bussines.PortfoliaModule;
 using Portfolio.Domain.AppCode.Bussines.ServiceModule;
 using Portfolio.Domain.AppCode.Bussines.SkillModule;
-using Portfolio.Domain.AppCode.DTOs.ServiceDTOs;
 using Portfolio.Domain.Models;
 using Portfolio.Domain.Models.Entites;
 using Portfolio.WebUI.ViewModel;
@@ -32,9 +31,9 @@ namespace Portfolio.WebUI.Controllers
         {
             AboutMeViewModel vm = new();
             PersonAllQuery query = new PersonAllQuery();
-            vm.PersonDto = await mediator.Send(query);
+            vm.Person = await mediator.Send(query);
             ServiceAllQuery ServiceQuery = new ServiceAllQuery();
-            vm.Services = (ICollection<ServiceDto>)await mediator.Send(ServiceQuery);
+            vm.Services = (ICollection<Service>)await mediator.Send(ServiceQuery);
             SkillAllQuery skillQuery = new SkillAllQuery();
             vm.Skills = (ICollection<Skill>)await mediator.Send(skillQuery);
 

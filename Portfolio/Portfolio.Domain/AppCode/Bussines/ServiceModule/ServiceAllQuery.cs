@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using Portfolio.Domain.AppCode.DTOs.ServiceDTOs;
+using Portfolio.Domain.Models;
 using Portfolio.Domain.Models.DataContext;
 using System;
 using System.Collections.Generic;
@@ -12,33 +12,21 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.AppCode.Bussines.ServiceModule
 {
-    public class ServiceAllQuery:IRequest<IEnumerable<ServiceDto>>
+    public class ServiceAllQuery:IRequest<IEnumerable<Service>>
     {
-        public class ServiceAllQueryHandler : IRequestHandler<ServiceAllQuery, IEnumerable<ServiceDto>>
+        public class ServiceAllQueryHandler : IRequestHandler<ServiceAllQuery, IEnumerable<Service>>
         {
             private readonly PortfolioDbContext db;
-            private readonly IMapper mapper;
 
-            public ServiceAllQueryHandler(PortfolioDbContext db, IMapper mapper)
+            public ServiceAllQueryHandler(PortfolioDbContext db)
             {
                 this.db = db;
-                this.mapper = mapper;
             }
-            public async Task<IEnumerable<ServiceDto>> Handle(ServiceAllQuery request, CancellationToken cancellationToken)
+            public async Task<IEnumerable<Service>> Handle(ServiceAllQuery request, CancellationToken cancellationToken)
             {
-                var services = await db.Services.Where(s => s.DeletedDate == null).ToListAsync();
+                var data = await db.Services.Where(sl => sl.DeletedDate == null).ToListAsync(cancellationToken);
 
-                IList<ServiceDto> serviceDtos = new List<ServiceDto>();
-
-                foreach (var service in services)
-                {
-                  
-                    var serviceDto = mapper.Map<ServiceDto>(service);
-                    serviceDtos.Add(serviceDto);
-                };
-
-                return serviceDtos;
-
+                return data;
             }
         }
     }

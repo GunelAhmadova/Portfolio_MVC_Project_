@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using Portfolio.Domain.AppCode.DTOs.ServiceDTOs;
 using Portfolio.Domain.Models;
 using Portfolio.Domain.Models.DataContext;
 using System;
@@ -12,30 +11,37 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.AppCode.Bussines.ServiceModule
 {
-   public class ServiceCreateCommand:IRequest<ServiceDto>
-    { 
-        public ServiceDto serviceDto { get; set; }
+    public class ServiceCreateCommand : IRequest<Service>
+    {
+        public int Id { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
 
-        public class ServiceCreateCommandHandler : IRequestHandler<ServiceCreateCommand, ServiceDto>
+
+
+        public class ServiceCreateCommandHandler : IRequestHandler<ServiceCreateCommand,Service>
         {
             private readonly PortfolioDbContext db;
-            private readonly IMapper mapper;
 
-
-            public ServiceCreateCommandHandler(PortfolioDbContext db, IMapper mapper)
+            public ServiceCreateCommandHandler(PortfolioDbContext db)
             {
                 this.db = db;
-                this.mapper = mapper;
-                
             }
-            public async Task<ServiceDto> Handle(ServiceCreateCommand request, CancellationToken cancellationToken)
+            public async Task<Service> Handle(ServiceCreateCommand request, CancellationToken cancellationToken)
             {
-              var serviceChange = mapper.Map<Service>(request.serviceDto);
-              await  db.Services.AddAsync(serviceChange);
-              await  db.SaveChangesAsync();
-                return request.serviceDto;
-            }
-        }
+                var service = new Service()
+                {
+                    Id = request.Id,
+                    Title=request.Title,
+                    Description=request.Description
+                };
 
+                await db.Services.AddAsync(service, cancellationToken);
+                await db.SaveChangesAsync();
+                return service;
+            }
+
+            
+        }
     }
 }

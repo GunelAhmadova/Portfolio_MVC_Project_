@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Domain.AppCode.Bussines.AccountModule;
-using Portfolio.Domain.DTOs;
 using Portfolio.Domain.Models.Entites.Identity;
 using System.Threading.Tasks;
 
@@ -16,26 +15,36 @@ namespace Portfolio.WebUI.Controllers
             this.mediator = mediator;
         }
 
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+        public IActionResult ForgetPassword()
+        {
+            return View();
+        }
         public IActionResult Register()
         {
             return View();
         }
-        public IActionResult Login()
-        {
-            return View();
-        }
+       
         [HttpPost]
-        public async  Task<IActionResult> Register(AppUser user)
+        public async  Task<IActionResult> Register(RegisterCommand command)
         {
             if (!ModelState.IsValid)
             {
-                return View(user);
+                return View(command);
             }
-            RegisterCommand command = new();
+            
 
             var response = await mediator.Send(command);
 
             return Json(response);
         } 
+        
+        public IActionResult SignOut()
+        {
+            return View();
+        }
     }
 }

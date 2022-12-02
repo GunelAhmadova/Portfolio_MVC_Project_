@@ -1,4 +1,4 @@
-﻿using MediatR;
+﻿    using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Portfolio.Domain.Models;
 using Portfolio.Domain.Models.DataContext;
@@ -28,23 +28,23 @@ namespace Portfolio.Domain.AppCode.Bussines.SkillModule
             }
 
 
-            public async Task<Skill> Handle(SkillEditCommand request, CancellationToken cancellationToken)
-            {
-
-                var data = await db.Skills.FirstOrDefaultAsync(sl => sl.Id == request.Id && sl.DeletedDate == null, cancellationToken);
-
-                if (data == null)
+                public async Task<Skill> Handle(SkillEditCommand request, CancellationToken cancellationToken)
                 {
-                    return null;
+
+                    var data = await db.Skills.FirstOrDefaultAsync(sl => sl.Id == request.Id && sl.DeletedDate == null, cancellationToken);
+
+                    if (data == null)
+                    {
+                        return null;
+                    }
+
+                    data.SkillName = request.SkillName;
+                    data.Description = request.Description;
+                    data.Rate = request.Rate;
+
+                    await db.SaveChangesAsync(cancellationToken);
+                    return data;
                 }
-
-                data.SkillName = request.SkillName;
-                data.Description = request.Description;
-                data.Rate = request.Rate;
-
-                await db.SaveChangesAsync(cancellationToken);
-                return data;
-            }
         }
 
 

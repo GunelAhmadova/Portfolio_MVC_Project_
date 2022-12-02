@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Domain.AppCode.Bussines.PersonModule;
 using Portfolio.Domain.AppCode.Bussines.ServiceModule;
-using Portfolio.Domain.AppCode.DTOs.ServiceDTOs;
 using Portfolio.Domain.Models.DataContext;
 using System;
 using System.Collections.Generic;
@@ -34,11 +33,9 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> Create(ServiceDto serviceDto)
+        public async Task<IActionResult> Create(ServiceCreateCommand command)
         {
-            if (!ModelState.IsValid) return View(serviceDto);
-            ServiceCreateCommand command = new();
-            command.serviceDto = serviceDto;
+           
             var response = await mediator.Send(command);
             return RedirectToAction(nameof(Index));
         } 
@@ -51,13 +48,9 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
             return View(response);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(ServiceDto serviceDto)
+        public async Task<IActionResult> Edit(ServiceEditCommand command)
         {
-            if (!ModelState.IsValid) return View(serviceDto);
-            ServiceEditCommand command = new ServiceEditCommand()
-            {
-                serviceDto = serviceDto
-            };
+            
             var response =await mediator.Send(command);
             return RedirectToAction(nameof(Index));
         }

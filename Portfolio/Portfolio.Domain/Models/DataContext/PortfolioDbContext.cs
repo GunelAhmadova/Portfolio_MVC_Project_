@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Portfolio.Domain.Models.DataContext
 {
-    public class  PortfolioDbContext: IdentityDbContext<AppUser, AppRole, string, AppUserClaim, AppUserRole, AppUserLogin, AppRoleClaim, AppUserToken>
+    public class  PortfolioDbContext: IdentityDbContext<AppUser, AppRole, int, AppUserClaim, AppUserRole, AppUserLogin, AppRoleClaim, AppUserToken>
     {
         public PortfolioDbContext(DbContextOptions options)
             :base(options)

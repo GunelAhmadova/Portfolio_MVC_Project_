@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.Models.Entites.Identity
 {
-   public class AppUserLogin: IdentityUserLogin<string>
+   public class AppUserLogin: IdentityUserLogin<int>
     { 
 
     }

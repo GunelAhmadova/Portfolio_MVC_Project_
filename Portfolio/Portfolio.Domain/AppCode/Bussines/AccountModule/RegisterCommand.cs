@@ -1,11 +1,15 @@
 ﻿ using MediatR;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using Portfolio.Domain.AppCode.Services;
 using Portfolio.Domain.Models.Entites.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -26,12 +30,13 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
             private readonly UserManager<AppUser> userManager;
             private readonly RoleManager<AppRole> roleManager;
             private readonly IActionContextAccessor ctx;
-
-            public RegisterCommandHandler(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IActionContextAccessor ctx)
+            private readonly EmailService emailService;
+            public RegisterCommandHandler(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IActionContextAccessor ctx,EmailService emailService)
             {
                 this.userManager = userManager;
                 this.roleManager = roleManager;
                 this.ctx = ctx;
+                this.emailService = emailService;
             }
 
             public async Task<AppUser> Handle(RegisterCommand request, CancellationToken cancellationToken)
@@ -58,7 +63,13 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
                     {
                         ctx.ActionContext.ModelState.AddModelError("Name", item.Description);
                     }
+                    return user;
                 }
+
+                //email
+                var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
+                var confirmLink = $"https://localhost:44393/confirm-email?token={token}";
+                await emailService.SendEmailAsync(user.Email, "Email Confrim Message", confirmLink);
 
                 return user;
             }

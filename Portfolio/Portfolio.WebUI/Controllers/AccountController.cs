@@ -17,7 +17,18 @@ namespace Portfolio.WebUI.Controllers
 
         public IActionResult SignIn()
         {
+
             return View();
+        }
+        [HttpPost]
+        public async Task<IActionResult> SignIn(SigninCommand command)
+        {
+           var response= await mediator.Send(command);
+            if (!ModelState.IsValid)
+            {
+                return View(command);
+            }
+            return RedirectToAction("About", "Home");
         }
         public IActionResult ForgetPassword()
         {
@@ -31,20 +42,26 @@ namespace Portfolio.WebUI.Controllers
         [HttpPost]
         public async  Task<IActionResult> Register(RegisterCommand command)
         {
+            var response = await mediator.Send(command);
             if (!ModelState.IsValid)
             {
                 return View(command);
             }
             
 
-            var response = await mediator.Send(command);
 
             return Json(response);
         } 
         
-        public IActionResult SignOut()
+        public async Task <IActionResult> SignOut(SignOutCommand command)
         {
-            return View();
+            var respone = await mediator.Send(command);
+               return RedirectToAction("About", "Home");
         }
+        //[Route("/confirm-email")]
+        //public async Task<IActionResult> ConfirmEmail(string token)
+        //{
+            
+        //}
     }
 }

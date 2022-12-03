@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.Models.Entites.Identity
 {
-   public class AppRoleClaim: IdentityRoleClaim<string>
+   public class AppRoleClaim: IdentityRoleClaim<int>
     {
     }
 }

@@ -34,131 +34,149 @@
 <body>
 
 <!-- Page Wrapper -->
-<div id="wrap"> 
-  
-  <!-- Header -->
-  <nav id="cd-lateral-nav">
-    <h5 class="tittle">MotiCv</h5>
-    <ul class="cd-navigation">
-        <li><a href="index.html">Index Main</a></li>
-        <li><a href="index-1.html">Index 2</a></li>
-        <li><a href="index-2.html">Index 3</a></li>
-        <li><a href="index-3-pages.html">Index Links</a></li>
-        <li><a asp-controller="home" asp-action="about">About Me</a></li>
-        <li><a asp-controller="home" asp-action="resume">Resume</a></li>
+    <div id="wrap">
+        @{
+            if (User.Identity.IsAuthenticated)
+            {
+                <div>@User.Identity.Name</div>
+                <a class="btn btn-danger" asp-controller="Account" asp-action="SignOut">Sign Out</a>
+            }
+            else
+            {
+                <a class="btn btn-success" asp-controller="Account" asp-action="SignIn">Sign In</a>
 
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li class="item-has-children">
-            <a href="index.html">Pages</a>
-            <ul class="sub-menu">
-                <li><a href="blog-single.html">Blog Details</a></li>
-                <li><a href="resume(edit-mode).html">Resume (edit mode)</a></li>
-                <li><a href="resume(edit-professional-experience).html">Resume (edit professional experience)</a></li>
-            </ul>
-        </li>
-    </ul>
-    <h5 class="tittle">Latest Post</h5>
-    <ul class="latest-post">
-      
-      <!-- Post Small -->
-      <li>
-        <div class="media">
-          <div class="media-left"> <a href="#."><img src="~/assets/images/small-img.jpg" alt=""></a></div>
-          <div class="media-body"> <a href="#.">Hello Itaewon 
-            Project</a>
-            <p class="font-crimson font-italic">Webdesign</p>
-          </div>
-        </div>
-      </li>
-      <!-- Post Small -->
-      <li>
-        <div class="media">
-          <div class="media-left"> <a href="#."><img src="~/assets/images/small-img-1.jpg" alt=""></a></div>
-          <div class="media-body"> <a href="#.">Casual in grey</a>
-            <p class="font-crimson font-italic">Webdesign</p>
-          </div>
-        </div>
-      </li>
-      <!-- Post Small -->
-      <li>
-        <div class="media">
-          <div class="media-left"> <a href="#."><img src="~/assets/images/small-img-2.jpg" alt=""></a></div>
-          <div class="media-body"> <a href="#.">Transittions</a>
-            <p class="font-crimson font-italic">Webdesign</p>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </nav>
-  
-  <!-- End Header --> 
-  
-  <!-- Content -->
-  <main class="cd-main-content">
-    <div id="content" class="bg">
-      <div class="resume">
-        <div class="container"> 
-          
-          <!-- TOP HEAD -->
-          <div class="top-head">
-            <div class="row">
-              <div class="col-sm-6">
-                <h4>Resume </h4>
-                <a asp-area="admin" asp-controller="admin" asp-action="index">Edit Resume</a> </div>
-              <div class="col-sm-6"> <a id="cd-menu-trigger" href="#0"><span class="cd-menu-icon"></span></a> </div>
-            </div>
-          </div>
-          
-          <!-- Resume -->
-          <div class="row"> 
-            
-            <!-- Sidebar -->
-            <div class="col-md-4">
-                                @await Component.InvokeAsync("PersonProfiles")
-            </div>
-            
-            <!-- MAIN CONTENT -->
-            <div class="col-md-8"> 
-              
-              <!-- NAV LINKS -->          
-              <nav> 
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-tabis" aria-expanded="false"> <span class="tittle">MENU</span> <span class="fa fa-navicon icon-nav"></span> </button>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="nav-tabis">
-                    <ul class="isop-filter nav nav-pills">
-                        @*<li role="presentation" class="active"><a href="#about-me" aria-controls="about-me" role="tab" data-toggle="tab"><i class="icon-user"></i> ABOUT ME</a></li>*@
-                        <li role="presentation" class="active"><a asp-controller="home" asp-action="about"><i class="icon-user"></i> ABOUT ME</a></li>
-                        <li role="presentation"><a asp-controller="home" asp-action="resume"><i class="icon-book-open"></i>RESUME</a></li>
-                        @*<li role="presentation"><a href="#resume" aria-controls="resume" role="tab" data-toggle="tab"><i class="icon-book-open"></i>RESUME</a></li>*@
-                        <li role="presentation"><a asp-controller="home" asp-action="portfolia"><i class="icon-rocket"></i>PORTFOLIO</a></li>
-                        <li role="presentation"><a asp-controller="blogpost" asp-action="index" ><i class="icon-note"></i>BLOG</a></li>
-                        <li role="presentation"><a asp-controller="Home" asp-action="Contact"> <i class="icon-pencil"></i>CONTACT ME</a></li>
-                        @*<li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab"> <i class="icon-pencil"></i>CONTACT ME</a></li>*@
+            }
+        }
+        <!-- Header -->
+        <nav id="cd-lateral-nav">
+            <h5 class="tittle">MotiCv</h5>
+            <ul class="cd-navigation">
+                <li><a href="index.html">Index Main</a></li>
+                <li><a href="index-1.html">Index 2</a></li>
+                <li><a href="index-2.html">Index 3</a></li>
+                <li><a href="index-3-pages.html">Index Links</a></li>
+                <li><a asp-controller="home" asp-action="about">About Me</a></li>
+                <li><a asp-controller="home" asp-action="resume">Resume</a></li>
+
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li class="item-has-children">
+                    <a href="index.html">Pages</a>
+                    <ul class="sub-menu">
+                        <li><a href="blog-single.html">Blog Details</a></li>
+                        <li><a href="resume(edit-mode).html">Resume (edit mode)</a></li>
+                        <li><a href="resume(edit-professional-experience).html">Resume (edit professional experience)</a></li>
                     </ul>
+                </li>
+            </ul>
+            <h5 class="tittle">Latest Post</h5>
+            <ul class="latest-post">
+
+                <!-- Post Small -->
+                <li>
+                    <div class="media">
+                        <div class="media-left"> <a href="#."><img src="~/assets/images/small-img.jpg" alt=""></a></div>
+                        <div class="media-body">
+                            <a href="#.">
+                                Hello Itaewon
+                                Project
+                            </a>
+                            <p class="font-crimson font-italic">Webdesign</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Post Small -->
+                <li>
+                    <div class="media">
+                        <div class="media-left"> <a href="#."><img src="~/assets/images/small-img-1.jpg" alt=""></a></div>
+                        <div class="media-body">
+                            <a href="#.">Casual in grey</a>
+                            <p class="font-crimson font-italic">Webdesign</p>
+                        </div>
+                    </div>
+                </li>
+                <!-- Post Small -->
+                <li>
+                    <div class="media">
+                        <div class="media-left"> <a href="#."><img src="~/assets/images/small-img-2.jpg" alt=""></a></div>
+                        <div class="media-body">
+                            <a href="#.">Transittions</a>
+                            <p class="font-crimson font-italic">Webdesign</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- End Header -->
+        <!-- Content -->
+        <main class="cd-main-content">
+            <div id="content" class="bg">
+                <div class="resume">
+                    <div class="container">
+
+                        <!-- TOP HEAD -->
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="top-head">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <h4>Resume </h4>
+                                        <a asp-area="admin" asp-controller="admin" asp-action="index">Edit Resume</a>
+                                    </div>
+                                    <div class="col-sm-6"> <a id="cd-menu-trigger" href="#0"><span class="cd-menu-icon"></span></a> </div>
+                                </div>
+                            </div>
+                        }
+
+                        <!-- Resume -->
+                        <div class="row">
+
+                            <!-- Sidebar -->
+                            <div class="col-md-4">
+                                @await Component.InvokeAsync("PersonProfiles")
+                            </div>
+
+                            <!-- MAIN CONTENT -->
+                            <div class="col-md-8">
+
+                                <!-- NAV LINKS -->
+                                <nav>
+                                    <!-- Brand and toggle get grouped for better mobile display -->
+                                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-tabis" aria-expanded="false"> <span class="tittle">MENU</span> <span class="fa fa-navicon icon-nav"></span> </button>
+                                    <!-- Collect the nav links, forms, and other content for toggling -->
+                                    <div class="collapse navbar-collapse" id="nav-tabis">
+                                        <ul class="isop-filter nav nav-pills">
+                                            @*<li role="presentation" class="active"><a href="#about-me" aria-controls="about-me" role="tab" data-toggle="tab"><i class="icon-user"></i> ABOUT ME</a></li>*@
+                                            <li role="presentation" class="active"><a asp-controller="home" asp-action="about"><i class="icon-user"></i> ABOUT ME</a></li>
+                                            <li role="presentation"><a asp-controller="home" asp-action="resume"><i class="icon-book-open"></i>RESUME</a></li>
+                                            @*<li role="presentation"><a href="#resume" aria-controls="resume" role="tab" data-toggle="tab"><i class="icon-book-open"></i>RESUME</a></li>*@
+                                            <li role="presentation"><a asp-controller="home" asp-action="portfolia"><i class="icon-rocket"></i>PORTFOLIO</a></li>
+                                            <li role="presentation"><a asp-controller="blogpost" asp-action="index"><i class="icon-note"></i>BLOG</a></li>
+                                            <li role="presentation"><a asp-controller="Home" asp-action="Contact"> <i class="icon-pencil"></i>CONTACT ME</a></li>
+                                            @*<li role="presentation"><a href="#contact" aria-controls="contact" role="tab" data-toggle="tab"> <i class="icon-pencil"></i>CONTACT ME</a></li>*@
+                                        </ul>
+                                    </div>
+                                </nav>
+                                <!-- NAV LINKS END -->
+                                @RenderBody()
+
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </nav>
-              <!-- NAV LINKS END -->
-              @RenderBody()
-             
             </div>
-          </div>
-        </div>
-      </div>
+        </main>
+        <!-- End Content -->
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="rights">
+                <p>© Copyright 2016 MotiCV. All right reserved.</p>
+            </div>
+        </footer>
+        <!-- End Footer -->
+
     </div>
-  </main>
-  <!-- End Content --> 
-  
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="rights">
-      <p>© Copyright 2016 MotiCV. All right reserved.</p>
-    </div>
-  </footer>
-  <!-- End Footer --> 
-  
-</div>
 <!-- End Page Wrapper --> 
 
 <!-- JavaScripts --> 

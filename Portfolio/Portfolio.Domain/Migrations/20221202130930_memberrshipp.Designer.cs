@@ -10,8 +10,8 @@ using Portfolio.Domain.Models.DataContext;
 namespace Portfolio.Domain.Migrations
 {
     [DbContext(typeof(PortfolioDbContext))]
-    [Migration("20221128202418_Portfoliaas")]
-    partial class Portfoliaas
+    [Migration("20221202130930_memberrshipp")]
+    partial class memberrshipp
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -70,6 +70,46 @@ namespace Portfolio.Domain.Migrations
                     b.ToTable("Backgrounds");
                 });
 
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.BlogPost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Body")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("PublishDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Slug")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Slug")
+                        .IsUnique();
+
+                    b.ToTable("BlogPosts");
+                });
+
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -89,6 +129,209 @@ namespace Portfolio.Domain.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppRole", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasDatabaseName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("Roles", "Membership");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppRoleClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("RoleClaims", "Membership");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUser", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Surname")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("Users", "Membership");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserClaim", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserClaims", "Membership");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserLogin", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserLogins", "Membership");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserRole", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("UserRoles", "Membership");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserToken", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("UserTokens", "Membership");
                 });
 
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Portfolia", b =>
@@ -145,7 +388,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 11, 28, 20, 24, 17, 775, DateTimeKind.Utc).AddTicks(1175));
+                        .HasDefaultValue(new DateTime(2022, 12, 2, 13, 9, 29, 722, DateTimeKind.Utc).AddTicks(1222));
 
                     b.Property<string>("Degree")
                         .HasColumnType("nvarchar(max)");
@@ -187,7 +430,7 @@ namespace Portfolio.Domain.Migrations
                             Id = 1,
                             Age = 29,
                             CareerLevel = "Teacher",
-                            CreatedDate = new DateTime(2022, 11, 29, 0, 24, 17, 772, DateTimeKind.Local).AddTicks(1537),
+                            CreatedDate = new DateTime(2022, 12, 2, 17, 9, 29, 720, DateTimeKind.Local).AddTicks(1866),
                             Degree = "Master",
                             Email = "gunelaa@code.edu.az",
                             Location = "Azerbaijan",
@@ -207,7 +450,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 11, 28, 20, 24, 17, 788, DateTimeKind.Utc).AddTicks(5515));
+                        .HasDefaultValue(new DateTime(2022, 12, 2, 13, 9, 29, 726, DateTimeKind.Utc).AddTicks(63));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
@@ -289,6 +532,57 @@ namespace Portfolio.Domain.Migrations
                     b.HasIndex("PersonId");
 
                     b.ToTable("Profiles");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppRoleClaim", b =>
+                {
+                    b.HasOne("Portfolio.Domain.Models.Entites.Identity.AppRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserClaim", b =>
+                {
+                    b.HasOne("Portfolio.Domain.Models.Entites.Identity.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserLogin", b =>
+                {
+                    b.HasOne("Portfolio.Domain.Models.Entites.Identity.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserRole", b =>
+                {
+                    b.HasOne("Portfolio.Domain.Models.Entites.Identity.AppRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Portfolio.Domain.Models.Entites.Identity.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserToken", b =>
+                {
+                    b.HasOne("Portfolio.Domain.Models.Entites.Identity.AppUser", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Portfolia", b =>

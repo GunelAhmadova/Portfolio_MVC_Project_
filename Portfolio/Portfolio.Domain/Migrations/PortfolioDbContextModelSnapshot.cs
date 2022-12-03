@@ -131,8 +131,10 @@ namespace Portfolio.Domain.Migrations
 
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppRole", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -169,9 +171,8 @@ namespace Portfolio.Domain.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("RoleId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -182,8 +183,10 @@ namespace Portfolio.Domain.Migrations
 
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUser", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
@@ -264,9 +267,8 @@ namespace Portfolio.Domain.Migrations
                     b.Property<string>("ClaimValue")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -286,9 +288,8 @@ namespace Portfolio.Domain.Migrations
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.HasKey("LoginProvider", "ProviderKey");
 
@@ -299,11 +300,11 @@ namespace Portfolio.Domain.Migrations
 
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserRole", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("RoleId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
 
                     b.HasKey("UserId", "RoleId");
 
@@ -314,8 +315,8 @@ namespace Portfolio.Domain.Migrations
 
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppUserToken", b =>
                 {
-                    b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
 
                     b.Property<string>("LoginProvider")
                         .HasColumnType("nvarchar(450)");
@@ -385,7 +386,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 2, 11, 32, 3, 554, DateTimeKind.Utc).AddTicks(1371));
+                        .HasDefaultValue(new DateTime(2022, 12, 2, 13, 9, 29, 722, DateTimeKind.Utc).AddTicks(1222));
 
                     b.Property<string>("Degree")
                         .HasColumnType("nvarchar(max)");
@@ -427,7 +428,7 @@ namespace Portfolio.Domain.Migrations
                             Id = 1,
                             Age = 29,
                             CareerLevel = "Teacher",
-                            CreatedDate = new DateTime(2022, 12, 2, 15, 32, 3, 551, DateTimeKind.Local).AddTicks(7324),
+                            CreatedDate = new DateTime(2022, 12, 2, 17, 9, 29, 720, DateTimeKind.Local).AddTicks(1866),
                             Degree = "Master",
                             Email = "gunelaa@code.edu.az",
                             Location = "Azerbaijan",
@@ -447,7 +448,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 2, 11, 32, 3, 558, DateTimeKind.Utc).AddTicks(1652));
+                        .HasDefaultValue(new DateTime(2022, 12, 2, 13, 9, 29, 726, DateTimeKind.Utc).AddTicks(63));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");

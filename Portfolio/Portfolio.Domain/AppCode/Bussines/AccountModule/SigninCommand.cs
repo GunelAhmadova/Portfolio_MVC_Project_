@@ -34,7 +34,6 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
 
                 if (request.UserName.IsEmail())
                 {
-
                     user = await signInManager.UserManager.FindByEmailAsync(request.UserName);
                 }
                 else
@@ -43,23 +42,29 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
                 }
                 if (user == null)
                 {
-                    ctx.ActionContext.ModelState.AddModelError("email", "İstifadəçi adı və ya şifrəniz səhvdir");
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "İstifadəçi adı və ya şifrəniz səhvdir");
                     return user;
                 }
                 var result = await signInManager.PasswordSignInAsync(user, request.Password, true, true);
                 if (!result.Succeeded)
                 {
-                    ctx.ActionContext.ModelState.AddModelError("Email", "İstifadəçi adı və ya şifrəniz səhvdir");
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "İstifadəçi adı və ya şifrəniz səhvdir");
                 }
+              
 
 
                 if (result.IsLockedOut)
                 {
-                    ctx.ActionContext.ModelState.AddModelError("email", "5 sehv ceht etdiyiniz ucun hesabiniz mehdudlashdirilib.5 deq sonra yeniden yoxlayin");
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "5 sehv ceht etdiyiniz ucun hesabiniz mehdudlashdirilib.5 deq sonra yeniden yoxlayin");
 
                     return user;
                 }
 
+                if (user.EmailConfirmed == false)
+                {
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "Ilk once emailinizi tesdiqleyin");
+                    return user;
+                }
                 return user;
 
 

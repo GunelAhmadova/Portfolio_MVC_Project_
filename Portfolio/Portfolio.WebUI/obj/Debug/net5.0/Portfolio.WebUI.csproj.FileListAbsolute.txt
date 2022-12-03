@@ -383,5 +383,5 @@ C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\BlogPost\_ListBody.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\BlogPost\Index.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
-C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Shared\_BlogsPartialView.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Account\SignIn.cshtml.g.cs

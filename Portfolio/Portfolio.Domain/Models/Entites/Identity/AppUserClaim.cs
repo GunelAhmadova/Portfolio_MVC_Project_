@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.Models.Entites.Identity
 {
-  public  class AppUserClaim: Microsoft.AspNetCore.Identity.IdentityUserClaim<string>
+  public  class AppUserClaim: IdentityUserClaim<int>
     { 
     }
 }

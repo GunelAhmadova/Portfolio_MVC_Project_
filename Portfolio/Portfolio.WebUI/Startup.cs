@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
+using Portfolio.Domain.AppCode.Services;
 using Portfolio.Domain.Models.DataContext;
 using Portfolio.Domain.Models.Entites.Identity;
 using System;
@@ -49,8 +49,14 @@ namespace Portfolio.WebUI
             services.AddIdentity<AppUser, AppRole>(con =>
             {
                 con.Password.RequiredLength = 8;
-            }).AddEntityFrameworkStores<PortfolioDbContext>();
+            }).AddDefaultTokenProviders().AddEntityFrameworkStores<PortfolioDbContext>();
 
+
+            services.Configure<EmailServiceOptions>(cfg =>
+            {
+                Configuration.GetSection("emailAccount").Bind(cfg);
+            });
+            services.AddSingleton<EmailService>();
             //services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ValidateBehaviour<,>));
             services.AddMediatR(assemblies);
 

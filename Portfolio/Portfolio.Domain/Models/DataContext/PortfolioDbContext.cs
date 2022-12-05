@@ -12,7 +12,7 @@ namespace Portfolio.Domain.Models.DataContext
             :base(options)
         {
 
-        }
+            }
         public DbSet<Person> People { get; set; }
         public DbSet<Social> Profiles { get; set; }
         public DbSet<Service> Services { get; set; }

@@ -23,7 +23,7 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
             var response = await mediator.Send(query);
             return View(response);
         } 
-        public async Task<IActionResult> Create()
+        public IActionResult Create()
         {
             return View();
         } 

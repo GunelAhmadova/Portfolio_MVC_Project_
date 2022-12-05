@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.Domain.AppCode.Services
 {
-    public class EmailService
+    public class EmailService : IEmailService
     {
         private readonly EmailServiceOptions options;
 
@@ -14,7 +14,7 @@ namespace Portfolio.Domain.AppCode.Services
             this.options = options.Value;
         }
 
-        public async Task<bool> SendEmailAsync (string toEmail,string subject,string message)
+        public async Task<bool> SendEmailAsync(string toEmail, string subject, string message)
         {
             var smtpClient = new SmtpClient(options.SmtpHost, options.SmtpPort);
             smtpClient.Credentials = new NetworkCredential(options.UserName, options.Password);

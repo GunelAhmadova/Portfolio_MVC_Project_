@@ -1,16 +1,9 @@
-﻿ using MediatR;
-using Microsoft.AspNetCore.Http;
+﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
-using Microsoft.EntityFrameworkCore;
 using Portfolio.Domain.AppCode.Services;
 using Portfolio.Domain.Models.Entites.Identity;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Policy;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -31,31 +24,48 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
             private readonly RoleManager<AppRole> roleManager;
             private readonly IActionContextAccessor ctx;
             private readonly EmailService emailService;
-            public RegisterCommandHandler(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IActionContextAccessor ctx,EmailService emailService)
+            private readonly ICryptoService cryptoService;
+
+            public RegisterCommandHandler(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IActionContextAccessor ctx,EmailService emailService,
+                ICryptoService cryptoService)
             {
                 this.userManager = userManager;
                 this.roleManager = roleManager;
                 this.ctx = ctx;
                 this.emailService = emailService;
+                this.cryptoService = cryptoService;
             }
 
             public async Task<AppUser> Handle(RegisterCommand request, CancellationToken cancellationToken)
             {
-                AppUser user = new AppUser
+
+                var user = await userManager.FindByEmailAsync(request.Email);
+
+
+                if (user != null)
+                {
+                    ctx.ActionContext.ModelState.AddModelError("Email", "Bu e-poct artiq istifade olunub");
+                    return null;
+                }
+
+
+                user = new AppUser
                 {
                     Name = request.Name,
                     Surname = request.Surname,
                     Email = request.Email,
-                    UserName = $"{request.Name}.{request.Surname}".ToLower()
-                   
-                };
-                var countUser = await userManager.Users.CountAsync(m=>m.UserName.StartsWith(user.UserName));
-                if (countUser > 0)
-                {
-                    user.UserName = $"{user.UserName}{countUser + 1}";
-                }
+                    UserName = $"{request.Name}-{Guid.NewGuid()}".ToLower()
 
-              var result= await userManager.CreateAsync(user, request.Password);
+                };
+
+
+                //var countUser = await userManager.Users.CountAsync(m=>m.UserName.StartsWith(user.UserName));
+                //if (countUser > 0)
+                //{
+                //    user.UserName = $"{user.UserName}{countUser + 1}";
+                //}
+
+                var result= await userManager.CreateAsync(user, request.Password);
 
                 if (!result.Succeeded)
                 {
@@ -63,13 +73,26 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
                     {
                         ctx.ActionContext.ModelState.AddModelError("Name", item.Description);
                     }
-                    return user;
+                    return /*user*/  null;
                 }
 
                 //email
                 var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
-                var confirmLink = $"https://localhost:44393/confirm-email?token={token}";
-                await emailService.SendEmailAsync(user.Email, "Email Confrim Message", confirmLink);
+
+
+                string myToken = cryptoService.Encrypt($"{user.Id}-{token}", true);
+
+                string scheme = ctx.ActionContext.HttpContext.Request.Scheme;
+                string host = ctx.ActionContext.HttpContext.Request.Host.ToString();
+
+
+                var url = $"{scheme}://{host}/email-confirm?token={myToken}";
+
+                //{scheme}://{host}/email-confirm?token=1
+
+                await emailService.SendEmailAsync(user.Email,
+                    "Registration",
+                    $"Qeydiyyati tamamlamaq ucun <a href='{url}'>buraya</a> kecid edin");
 
                 return user;
             }

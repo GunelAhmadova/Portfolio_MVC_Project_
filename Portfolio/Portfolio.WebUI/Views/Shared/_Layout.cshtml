@@ -38,12 +38,13 @@
         @{
             if (User.Identity.IsAuthenticated)
             {
-                <div>@User.Identity.Name</div>
+                @*<div>@User.Identity.Name</div>*@
                 <a class="btn btn-danger" asp-controller="Account" asp-action="SignOut">Sign Out</a>
             }
             else
             {
                 <a class="btn btn-success" asp-controller="Account" asp-action="SignIn">Sign In</a>
+                <a class="btn btn-warning" asp-controller="Account" asp-action="Register">Sign Up</a>
 
             }
         }

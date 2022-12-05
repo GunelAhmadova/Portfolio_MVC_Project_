@@ -10,7 +10,6 @@ namespace Portfolio.WebUI.Controllers
     public class BlogPostController : Controller
     {
         private readonly IMediator mediator;
-        private readonly PortfolioDbContext db;
 
         public BlogPostController(IMediator mediator)
         {

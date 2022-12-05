@@ -52,11 +52,7 @@ namespace Portfolio.WebUI
             }).AddDefaultTokenProviders().AddEntityFrameworkStores<PortfolioDbContext>();
 
 
-            services.Configure<EmailServiceOptions>(cfg =>
-            {
-                Configuration.GetSection("emailAccount").Bind(cfg);
-            });
-            services.AddSingleton<EmailService>();
+           
             //services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ValidateBehaviour<,>));
             services.AddMediatR(assemblies);
 
@@ -64,7 +60,29 @@ namespace Portfolio.WebUI
 
             services.AddScoped<UserManager<AppUser>>();
             services.AddScoped<SignInManager<AppUser>>();
-            services.AddScoped<RoleManager<AppRole>>();
+            services.AddScoped<RoleManager<AppRole>>(); 
+
+
+            //services.Configure<AntiforgeryOptions>(cfg =>
+            //{
+            //    cfg.Cookie.Name = "bigon-ant";
+            //});
+
+            //services.Configure<CryptoServiceOptions>(cfg =>
+            //{
+            //    configuration.GetSection("cryptograpy").Bind(cfg);
+            //}); 
+
+
+            services.AddSingleton<ICryptoService, CryptoService>();
+
+            services.Configure<EmailServiceOptions>(cfg =>
+            {
+                Configuration.GetSection("emailAccount").Bind(cfg);
+            }); 
+
+            services.AddSingleton<EmailService>();
+
 
 
             services.AddAuthentication();

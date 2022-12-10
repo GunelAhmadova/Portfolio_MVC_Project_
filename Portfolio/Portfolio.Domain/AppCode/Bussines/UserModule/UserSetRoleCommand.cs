@@ -31,6 +31,7 @@ namespace Portfolio.Domain.AppCode.Bussines.UserModule
             }
             public async Task<JsonResponse> Handle(UserSetRoleCommand request, CancellationToken cancellationToken)
             {
+                
                 var response = new JsonResponse
                 {
                     Error = false
@@ -50,7 +51,7 @@ namespace Portfolio.Domain.AppCode.Bussines.UserModule
                     response.Message = "İstifadəçi hesabı təsdiq etməyib";
                     goto end;
                 }
-                if(!await roleManager.RoleExistsAsync(request.RoleName))
+                if (!await roleManager.RoleExistsAsync(request.RoleName))
                 {
                     response.Error = true;
                     response.Message = $"{request.RoleName} mövcud deyil";

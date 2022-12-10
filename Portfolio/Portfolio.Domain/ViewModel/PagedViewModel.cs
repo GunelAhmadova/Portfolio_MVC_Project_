@@ -27,7 +27,7 @@ namespace Portfolio.Domain.ViewModel
                 }
             }
 
-            public IEnumerable<T> Items { get; set; }
+            public List<T> Items { get; set; }
 
             public PagedViewModel(IQueryable<T> query, int page, int size)
             {

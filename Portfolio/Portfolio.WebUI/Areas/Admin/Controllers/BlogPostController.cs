@@ -1,6 +1,8 @@
 ﻿using BigOn.Domain.Business.BlogPostModule;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.Domain.AppCode.Bussines.BlogPostModule;
 using Portfolio.Domain.Business.BlogPostModule;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace Portfolio.WebUI.Areas.Admin.Controllers
 {
+
+    [Authorize(Roles="admin,moderator")]
+
     [Area("Admin")]
      public class BlogPostController : Controller
     {
@@ -22,7 +27,14 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
         {
             var response = await mediator.Send(query);
             return View(response);
-        } 
+        }
+        [HttpPost]
+       public async Task<IActionResult> Publish (BlogPostPublishedCommand command)
+        {
+            var response = await mediator.Send(command);
+            return Json(response);
+
+        }
         public IActionResult Create()
         {
             return View();

@@ -15,7 +15,6 @@
                         lorem ipsum dolor sit amet, consectetur adipisicing
                         elit
                     </span>
-                    <a href="C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Areas\Admin\Views\Skill\Index.cshtml">C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\Areas\Admin\Views\Skill\Index.cshtml</a>
                 </div>
             </div>
         </div>
@@ -53,6 +52,7 @@
                         <tr>
                             <th>Name</th>
                             <th>image</th>
+                            <th>WrittenBy</th>
 
                             <th class="operation">
                                 <a asp-action="create" class="btn btn-success">
@@ -71,5 +71,73 @@
     <!-- Basic table card end -->
 </div>
 
+
+@section addcss{
+    <link rel="stylesheet" href="~/libs/tab-control/tab-control.css" />
+    <style>
+        input[type=checkbox].checkbox {
+            display: none;
+        }
+
+            input[type=checkbox].checkbox + label {
+                position: relative;
+                padding-left: 25px;
+            }
+
+                input[type=checkbox].checkbox + label::before {
+                    content: "";
+                    font-size: 0.7em;
+                    font-weight: 900;
+                    font-family: "Font Awesome 5 Free";
+                    position: absolute;
+                    border: 1px solid #cccccc85;
+                    width: 18px;
+                    height: 18px;
+                    border-radius: 2px;
+                    top: 50%;
+                    left: 0px;
+                    transform: translateY(-50%);
+                    text-align: center;
+                    text-indent: 1px;
+                    line-height: 1.7em;
+                }
+
+        input[type=checkbox]:checked.checkbox + label::before {
+            content: "\f00c";
+            color: #ffffff;
+            background-color: teal;
+            border-color: teal;
+        }
+    </style>
+}
+
+@section addjs{
+    <script src="~/libs/tab-control/tab-control.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".publish").click(function (e) {
+                e.preventDefault()
+                const id = $(e.currentTarget).attr("id");
+                var urllink = `/Admin/BlogPost/Publish/${id}`
+                $.ajax({
+                    type: "POST",
+                    url: urllink,
+                    success: function (response) {
+                        if (response.error == true) {
+                            toastr.error(response.message)
+                        }
+                        else if (response.error == false) {
+                            toastr.success(response.message)
+                        }
+                    }
+                        
+
+                })
+                
+            });
+        })
+    </script>
+}
 
 

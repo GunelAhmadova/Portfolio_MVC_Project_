@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Domain.AppCode.Bussines.ServiceModule;
 using Portfolio.Domain.AppCode.Bussines.SkillModule;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Portfolio.WebUI.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "admin")]
 
     [Area("Admin")]
     public class SkillController : Controller

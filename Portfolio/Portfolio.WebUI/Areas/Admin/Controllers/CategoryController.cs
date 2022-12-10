@@ -1,5 +1,6 @@
 ﻿using BigOn.Domain.Business.CategoryModule;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Portfolio.Domain.AppCode.Bussines.CategoryModule;
 using Portfolio.Domain.Business.CategoryModule;
@@ -9,7 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Portfolio.WebUI.Areas.Admin.Controllers
-{  
+{
+    [Authorize(Roles = "admin")]
 
     [Area("Admin")]
     public class CategoryController : Controller

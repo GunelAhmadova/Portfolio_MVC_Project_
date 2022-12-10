@@ -58,6 +58,15 @@ namespace Portfolio.WebUI
 
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
+            services.ConfigureApplicationCookie(cfg =>
+            {
+
+                cfg.LoginPath = "/signin.html";
+                cfg.AccessDeniedPath = "/accessdenied.html";
+
+            });
+
+
             services.AddScoped<UserManager<AppUser>>();
             services.AddScoped<SignInManager<AppUser>>();
             services.AddScoped<RoleManager<AppRole>>(); 

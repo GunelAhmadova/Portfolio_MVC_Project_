@@ -105,33 +105,34 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="tab-page" id="principals" aria-title="Səlahiyyətlər"> 
+                            <div class="tab-page" id="principals" aria-title="Səlahiyyətlər">
 
                                 @*<table class="table table-hover">
-                                    <tbody>
-                                        @foreach (AvailablePrincipal item in ViewBag.AvailablePrincipals)
-                                        {
-                                            <tr>
-                                                <td>
-                                                    <input class="principal-selector checkbox"
-                                                           data-principal-name="@item.PrincipalName"
-                                                           data-user-id="@Model.Id"
-                                                           id="@item.PrincipalName"
-                                                           type="checkbox"
-                                                           @(item.Selected ? "checked" : "") />
-                                                    <label for="@item.PrincipalName">@item.PrincipalName</label>
-                                                </td>
-                                            </tr>
-                                        }
+                                        <tbody>
+                                            @foreach (AvailablePrincipal item in ViewBag.AvailablePrincipals)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        <input class="principal-selector checkbox"
+                                                               data-principal-name="@item.PrincipalName"
+                                                               data-user-id="@Model.Id"
+                                                               id="@item.PrincipalName"
+                                                               type="checkbox"
+                                                               @(item.Selected ? "checked" : "") />
+                                                        <label for="@item.PrincipalName">@item.PrincipalName</label>
+                                                    </td>
+                                                </tr>
+                                            }
 
-                                    </tbody>
-                                </table>*@
+                                        </tbody>
+                                    </table>*@
                             </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12 d-flex justify-content-end">
                             <a class="btn btn-info" asp-action="index">Go Back</a>
+                            <button class="publish">salam</button>
                         </div>
                     </div>
                 </div>
@@ -186,7 +187,7 @@
 
     <script>
         $(document).ready(function() {
-            $('.role-selector').change(function(e) {
+            $('.role-selector').change(function (e) {
                 const body = $(e.currentTarget).data();
                 body.selected = $(e.currentTarget).is(':checked');
 
@@ -195,15 +196,15 @@
                     url: '@Url.Action("SetRole")',
                     data: body,
                     contentType: 'application/x-www-form-urlencoded',
-                    success: function(response) {
+                    success: function (response) {
+                        console.log(response)
+
                         if (response.error == false) {
                             toastr.success(response.message, "Ugur!");
-                            alert("ok")
                         }
                         else {
                             $(e.currentTarget).prop('checked', !body.selected);
                             toastr.error(response.message, "Xəta!");
-                            alert("false")
                         }
                     },
                     error: function(response) {
@@ -240,4 +241,7 @@
             });*@
         });
     </script>
+    
+       
+    
 }

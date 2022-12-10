@@ -35,6 +35,8 @@
     <!-- Style.css -->
     <link rel="stylesheet" type="text/css" href="~/admin/css/style.css">
     <link rel="stylesheet" type="text/css" href="~/admin/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" type="text/css" href="~/libs/toastr.js/toastr.min.css">
+
     @RenderSection("addcss", required: false)
 
 </head>
@@ -96,7 +98,7 @@
                                                      src="~/admin/images/avatar-4.jpg"
                                                      alt="Generic placeholder image">
                                                 <div class="media-body">
-                                                    <h5 class="notification-user">John Doe</h5>
+                                                    <h5 class="notification-user">@User.Identity.Name</h5>
                                                     <p class="notification-msg">
                                                         Lorem ipsum dolor sit amet, consectetuer
                                                         elit.
@@ -400,19 +402,36 @@
     <script src="~/admin/pages/widget/amchart/light.js"></script>
     <script src="~/admin/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script type="text/javascript" src="~/admin/js/SmoothScroll.js"></script>
+
+
+    <script src="~/admin/js/pcoded.min.js"></script>
     <script type="text/javascript" src="~/libs/toastr.js/toastr.min.js"></script>
     <script type="text/javascript" src="~/admin/js/customize.toastr.js"></script>
-    <script src="~/admin/js/pcoded.min.js"></script>
+
+
+    <script src="~/admin/js/vartical-layout.min.js"></script>
+
     <script src="https://kit.fontawesome.com/ba8a63ffc8.js" crossorigin="anonymous"></script>
 
     <!-- custom js -->
 
-    <script src="~/admin/js/vartical-layout.min.js"></script>
 
 
     @RenderSection("addjs", required: false)
 
     <script type="text/javascript" src="~/admin/js/script.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            const { pathname } = location;
+
+            let li = $(`.main-menu a[href="${pathname}"]`).parent('li');
+
+            $(li).addClass('active');
+            $(li).parent('.pcoded-hasmenu').addClass('pcoded-trigger').addClass('active');
+
+        });
+    </script>
 </body>
 
 

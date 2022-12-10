@@ -26,11 +26,13 @@ namespace BigOn.Domain.Business.BlogPostModule
         {
             private readonly PortfolioDbContext db;
             private readonly IHostEnvironment env;
+            private readonly IHttpContextAccessor accessor;
 
-            public BlogPostCreateCommandHandler(PortfolioDbContext db, IHostEnvironment env)
+            public BlogPostCreateCommandHandler(PortfolioDbContext db, IHostEnvironment env, IHttpContextAccessor accessor)
             {
                 this.db = db;
                 this.env = env;
+                this.accessor = accessor;
             }
 
             public async Task<BlogPost> Handle(BlogPostCreateCommand request, CancellationToken cancellationToken)
@@ -39,6 +41,7 @@ namespace BigOn.Domain.Business.BlogPostModule
                 {
                     Title = request.Title,
                     Body = request.Body,
+                    WrittenBy=accessor.HttpContext.User.Identity.Name
                   
                 };
 

@@ -14,7 +14,9 @@ namespace Portfolio.Domain.Models.Entites
         public string Slug { get; set; }
         public string Body { get; set; }
         public string ImagePath { get; set; }
-        
+
+        public string WrittenBy { get; set; }
+
         public DateTime? PublishDate { get; set; } 
 
         public IFormFile  ImageFile { get; set; }

@@ -21,6 +21,8 @@ namespace Portfolio.Domain.Models.DataContext
         public DbSet<Portfolia> Portfolias { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
+        public DbSet<BlogPostComment> BlogPostComments { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

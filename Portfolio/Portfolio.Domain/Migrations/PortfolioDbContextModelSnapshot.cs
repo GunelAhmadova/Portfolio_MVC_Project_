@@ -100,12 +100,47 @@ namespace Portfolio.Domain.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("WrittenBy")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Slug")
                         .IsUnique();
 
                     b.ToTable("BlogPosts");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.BlogPostComment", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("AppUserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("BlogPostId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Comment")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AppUserId");
+
+                    b.HasIndex("BlogPostId");
+
+                    b.ToTable("BlogPostComments");
                 });
 
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Category", b =>
@@ -386,7 +421,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 2, 13, 9, 29, 722, DateTimeKind.Utc).AddTicks(1222));
+                        .HasDefaultValue(new DateTime(2022, 12, 9, 17, 26, 32, 101, DateTimeKind.Utc).AddTicks(9663));
 
                     b.Property<string>("Degree")
                         .HasColumnType("nvarchar(max)");
@@ -428,7 +463,7 @@ namespace Portfolio.Domain.Migrations
                             Id = 1,
                             Age = 29,
                             CareerLevel = "Teacher",
-                            CreatedDate = new DateTime(2022, 12, 2, 17, 9, 29, 720, DateTimeKind.Local).AddTicks(1866),
+                            CreatedDate = new DateTime(2022, 12, 9, 21, 26, 32, 99, DateTimeKind.Local).AddTicks(9218),
                             Degree = "Master",
                             Email = "gunelaa@code.edu.az",
                             Location = "Azerbaijan",
@@ -448,7 +483,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 2, 13, 9, 29, 726, DateTimeKind.Utc).AddTicks(63));
+                        .HasDefaultValue(new DateTime(2022, 12, 9, 17, 26, 32, 105, DateTimeKind.Utc).AddTicks(9807));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");
@@ -530,6 +565,25 @@ namespace Portfolio.Domain.Migrations
                     b.HasIndex("PersonId");
 
                     b.ToTable("Profiles");
+                });
+
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.BlogPostComment", b =>
+                {
+                    b.HasOne("Portfolio.Domain.Models.Entites.Identity.AppUser", "AppUser")
+                        .WithMany()
+                        .HasForeignKey("AppUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Portfolio.Domain.Models.Entites.BlogPost", "BlogPost")
+                        .WithMany()
+                        .HasForeignKey("BlogPostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AppUser");
+
+                    b.Navigation("BlogPost");
                 });
 
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppRoleClaim", b =>

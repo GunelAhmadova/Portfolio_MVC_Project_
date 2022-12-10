@@ -30,7 +30,7 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
             }
             public  async Task<AppUser> Handle(SigninCommand request, CancellationToken cancellationToken)
             {
-                AppUser user = null; 
+                AppUser user = null;
 
                 if (request.UserName.IsEmail())
                 {
@@ -40,32 +40,48 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
                 {
                     user = await signInManager.UserManager.FindByNameAsync(request.UserName);
                 }
+
+
                 if (user == null)
                 {
-                    ctx.ActionContext.ModelState.AddModelError("UserName", "İstifadəçi adı və ya şifrəniz səhvdir");
-                    return user;
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "Istifadeci adi ve ya sifre sehvdir");
+
+                    return null;
                 }
-                var result = await signInManager.PasswordSignInAsync(user, request.Password, true, true);
-                if (!result.Succeeded)
+                if (!user.EmailConfirmed)
                 {
-                    ctx.ActionContext.ModelState.AddModelError("UserName", "İstifadəçi adı və ya şifrəniz səhvdir");
+                ctx.ActionContext.ModelState.AddModelError("UserName", "Emailinizi tesdiq edin");
+                    return null;
+                    
                 }
-              
+
+
+                var result = await signInManager.PasswordSignInAsync(user, request.Password, true, true);
 
 
                 if (result.IsLockedOut)
                 {
-                    ctx.ActionContext.ModelState.AddModelError("UserName", "5 sehv ceht etdiyiniz ucun hesabiniz mehdudlashdirilib.5 deq sonra yeniden yoxlayin");
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "Hesabibiz kecici olaraq mehdudlashdirilib");
 
-                    return user;
+                    return null;
                 }
 
-                if (user.EmailConfirmed == false)
+
+                if (result.IsNotAllowed)
                 {
-                    ctx.ActionContext.ModelState.AddModelError("UserName", "Ilk once emailinizi tesdiqleyin");
+                    ctx.ActionContext.ModelState.AddModelError("UserName", "Hesaba daxil olmaq mumkun deyil");
+
+                    return null;
+                }
+
+
+                if (result.Succeeded)
+                {
                     return user;
                 }
-                return user;
+
+               
+                return null;
 
 
 

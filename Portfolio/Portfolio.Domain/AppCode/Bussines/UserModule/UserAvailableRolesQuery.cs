@@ -31,7 +31,7 @@ namespace Portfolio.Domain.AppCode.Bussines.UserModule
             {
                 var user = await userManager.Users.FirstOrDefaultAsync(m => m.Id == request.UserId, cancellationToken);
 
-              var userRoles=await userManager.GetRolesAsync(user);
+              var userRoles=await userManager.GetRolesAsync(user);  
 
                 var roles = (await roleManager.Roles.ToListAsync(cancellationToken))
                            .Select(m => new AvailableRole

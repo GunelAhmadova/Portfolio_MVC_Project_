@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Portfolio.Domain.AppCode.Extension;
 using Portfolio.Domain.Business.BlogPostModule;
 using Portfolio.Domain.Models.DataContext;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Portfolio.WebUI.Controllers
@@ -21,11 +22,19 @@ namespace Portfolio.WebUI.Controllers
         public async Task<IActionResult> Index(BlogPostPagedQuery query)
         {
             var response = await mediator.Send(query);
+            response.Items = response.Items.Where(m => m.PublishDate != null && m.DeletedDate==null).ToList();
             if (Request.IsAjaxRequest())
             {
                 return PartialView("_BlogsPartialView", response);
             }
             return View(response);
+        } 
+
+        public async Task <IActionResult> Detail(BlogPostSingleQuery query)
+        {
+            var response = await mediator.Send(query);
+            return View(response);
         }
+
     }
 }

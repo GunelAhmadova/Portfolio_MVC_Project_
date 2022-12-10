@@ -51,7 +51,7 @@ namespace Portfolio.Domain.AppCode.Bussines.PortfoliaModule
                 string newName = Guid.NewGuid().ToString();
                 portfolia.ImageUrl = newName + extension;
                 //string fullname = Path.Combine(hostEnvironment.ContentRootPath, "wwwroot", "uploads", "images", portfolia.ImageUrl);
-                string fullname = hostEnvironment.GetImagePhysicalPath(newName);
+                string fullname = hostEnvironment.GetImagePhysicalPath(newName+extension);
                 using (var fs = new FileStream(fullname, FileMode.Create, FileAccess.Write))
                 {
                     request.ImageFile.CopyTo(fs);

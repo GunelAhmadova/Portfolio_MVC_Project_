@@ -164,6 +164,46 @@ namespace Portfolio.Domain.Migrations
                     b.ToTable("Categories");
                 });
 
+            modelBuilder.Entity("Portfolio.Domain.Models.Entites.ContactPost", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Answer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("AnsweredDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ContactPosts");
+                });
+
             modelBuilder.Entity("Portfolio.Domain.Models.Entites.Identity.AppRole", b =>
                 {
                     b.Property<int>("Id")
@@ -421,7 +461,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 9, 17, 26, 32, 101, DateTimeKind.Utc).AddTicks(9663));
+                        .HasDefaultValue(new DateTime(2022, 12, 10, 19, 31, 21, 168, DateTimeKind.Utc).AddTicks(692));
 
                     b.Property<string>("Degree")
                         .HasColumnType("nvarchar(max)");
@@ -463,7 +503,7 @@ namespace Portfolio.Domain.Migrations
                             Id = 1,
                             Age = 29,
                             CareerLevel = "Teacher",
-                            CreatedDate = new DateTime(2022, 12, 9, 21, 26, 32, 99, DateTimeKind.Local).AddTicks(9218),
+                            CreatedDate = new DateTime(2022, 12, 10, 23, 31, 21, 166, DateTimeKind.Local).AddTicks(2608),
                             Degree = "Master",
                             Email = "gunelaa@code.edu.az",
                             Location = "Azerbaijan",
@@ -483,7 +523,7 @@ namespace Portfolio.Domain.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2022, 12, 9, 17, 26, 32, 105, DateTimeKind.Utc).AddTicks(9807));
+                        .HasDefaultValue(new DateTime(2022, 12, 10, 19, 31, 21, 172, DateTimeKind.Utc).AddTicks(4534));
 
                     b.Property<DateTime?>("DeletedDate")
                         .HasColumnType("datetime2");

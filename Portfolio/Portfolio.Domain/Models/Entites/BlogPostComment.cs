@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Portfolio.Domain.Models.Entites
-{
+{ 
    public class BlogPostComment:BaseEntity
     {
         public string Comment { get; set; }

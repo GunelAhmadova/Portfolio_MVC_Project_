@@ -17,7 +17,6 @@ C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\bin\Debu
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\bin\Debug\net5.0\Portfolio.Domain.runtimeconfig.json
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\bin\Debug\net5.0\Portfolio.Domain.runtimeconfig.dev.json
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\bin\Debug\net5.0\Portfolio.Domain.dll
-C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\bin\Debug\net5.0\ref\Portfolio.Domain.dll
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\bin\Debug\net5.0\Portfolio.Domain.pdb
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\obj\Debug\net5.0\Portfolio.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\obj\Debug\net5.0\Portfolio.Domain.AssemblyInfoInputs.cache
@@ -28,3 +27,4 @@ C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\obj\Debu
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\obj\Debug\net5.0\Portfolio.Domain.pdb
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\obj\Debug\net5.0\Portfolio.Domain.genruntimeconfig.cache
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\obj\Debug\net5.0\Portfolio.Domain.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.Domain\bin\Debug\net5.0\ref\Portfolio.Domain.dll

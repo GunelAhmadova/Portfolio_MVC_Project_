@@ -175,7 +175,6 @@ C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug\net5.0\Portfolio.WebUI.runtimeconfig.json
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug\net5.0\Portfolio.WebUI.runtimeconfig.dev.json
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug\net5.0\Portfolio.WebUI.dll
-C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug\net5.0\ref\Portfolio.WebUI.dll
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug\net5.0\Portfolio.WebUI.pdb
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug\net5.0\Portfolio.WebUI.Views.dll
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug\net5.0\Portfolio.WebUI.Views.pdb
@@ -318,7 +317,6 @@ C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.RazorAssemblyInfo.cache
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.RazorAssemblyInfo.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\staticwebassets\Portfolio.WebUI.StaticWebAssets.Manifest.cache
-C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\staticwebassets\Portfolio.WebUI.StaticWebAssets.xml
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\scopedcss\bundle\Portfolio.WebUI.styles.css
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.TagHelpers.input.cache
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Portfolio.WebUI.TagHelpers.output.cache
@@ -390,3 +388,9 @@ C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Account\EmailConfirmation.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\Account\AccessDenied.cshtml.g.cs
 C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Views\BlogPost\Detail.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug\net5.0\System.DirectoryServices.AccountManagement.dll
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Messages\Index.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Messages\_ListBody.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\Razor\Areas\Admin\Views\Shared\Components\Messages\Default.cshtml.g.cs
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\bin\Debug\net5.0\ref\Portfolio.WebUI.dll
+C:\Users\user\Desktop\Portfolio_MVC_Project_\Portfolio\Portfolio.WebUI\obj\Debug\net5.0\staticwebassets\Portfolio.WebUI.StaticWebAssets.xml

@@ -1,9 +1,11 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 using Portfolio.Domain.AppCode.Services;
 using Portfolio.Domain.Models.Entites.Identity;
 using System;
+using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -54,16 +56,16 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
                     Name = request.Name,
                     Surname = request.Surname,
                     Email = request.Email,
-                    UserName = $"{request.Name}-{Guid.NewGuid()}".ToLower()
+                    UserName = request.Name
 
                 };
+                
 
-
-                //var countUser = await userManager.Users.CountAsync(m=>m.UserName.StartsWith(user.UserName));
-                //if (countUser > 0)
-                //{
-                //    user.UserName = $"{user.UserName}{countUser + 1}";
-                //}
+                var countUser = await userManager.Users.CountAsync(m => m.UserName.StartsWith(user.UserName));
+                if (countUser > 0)
+                {
+                    user.UserName = $"{user.UserName}{countUser + 1}";
+                }
 
                 var result= await userManager.CreateAsync(user, request.Password);
 
@@ -75,6 +77,8 @@ namespace Portfolio.Domain.AppCode.Bussines.AccountModule
                     }
                     return /*user*/  null;
                 }
+                await userManager.AddClaimAsync(user, new Claim("FirstName", user.Name));
+                await userManager.AddClaimAsync(user, new Claim("LastName", user.Surname));
 
                 //email
                 var token = await userManager.GenerateEmailConfirmationTokenAsync(user);

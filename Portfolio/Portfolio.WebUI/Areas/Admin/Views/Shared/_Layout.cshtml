@@ -153,7 +153,11 @@
                                     <div class="dropdown-toggle" data-toggle="dropdown">
                                         <img src="~/admin/images/avatar-4.jpg" class="img-radius"
                                              alt="User-Profile-Image">
-                                        <span>John Doe</span>
+
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <span>@User.Identity.Name</span>
+                                        }
                                         <i class="feather icon-chevron-down"></i>
                                     </div>
                                     <ul class="show-notification profile-notification dropdown-menu"

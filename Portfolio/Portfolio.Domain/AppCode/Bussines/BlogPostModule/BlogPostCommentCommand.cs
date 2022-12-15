@@ -4,16 +4,13 @@ using Microsoft.AspNetCore.Identity;
 using Portfolio.Domain.Models.DataContext;
 using Portfolio.Domain.Models.Entites;
 using Portfolio.Domain.Models.Entites.Identity;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Portfolio.Domain.AppCode.Bussines.BlogPostModule
 {
-  public  class BlogPostCommentCommand:IRequest<BlogPostComment>
+    public  class BlogPostCommentCommand:IRequest<BlogPostComment>
     {
         public string Comment { get; set; }
         public int BlogPostId { get; set; }
@@ -34,11 +31,11 @@ namespace Portfolio.Domain.AppCode.Bussines.BlogPostModule
             }
             public async Task<BlogPostComment> Handle(BlogPostCommentCommand request, CancellationToken cancellationToken)
             { 
-
+                var blog=db.BlogPosts.Where(c=>c.Id==request.BlogPostId).FirstOrDefault();
                 var comment= new BlogPostComment();
                 comment.Comment = request.Comment;
                 comment.BlogPostId = request.BlogPostId;
-
+                comment.BlogPost=blog;
                 var username = accessor.HttpContext.User.Identity.Name;
                 var user = await userManager.FindByNameAsync(username);
                 comment.AppUserId = user.Id;

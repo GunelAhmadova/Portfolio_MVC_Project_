@@ -1,4 +1,5 @@
-﻿<!doctype html>
+﻿
+<!doctype html>
 <html class="no-js" lang="en">
 
 <!-- Mirrored from new.uouapps.com/remoticv/index-1.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 19 May 2019 06:20:30 GMT -->
@@ -32,13 +33,14 @@
         <![endif]-->
 </head>
 <body>
+   
 
 <!-- Page Wrapper -->
     <div id="wrap">
         @{
             if (User.Identity.IsAuthenticated)
             {
-                @*<div>@User.Identity.Name</div>*@
+                <div></div>
                 <a class="btn btn-danger" asp-controller="Account" asp-action="SignOut">Sign Out</a>
             }
             else

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Portfolio.Domain.Models.Entites
 {
@@ -16,6 +17,7 @@ namespace Portfolio.Domain.Models.Entites
         public string ImagePath { get; set; }
 
         public string WrittenBy { get; set; }
+
 
         public DateTime? PublishDate { get; set; } 
 

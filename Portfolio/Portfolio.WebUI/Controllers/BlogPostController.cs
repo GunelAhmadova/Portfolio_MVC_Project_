@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Portfolio.Domain.AppCode.Bussines.BlogPostModule;
 using Portfolio.Domain.AppCode.Extension;
 using Portfolio.Domain.Business.BlogPostModule;
 using Portfolio.Domain.Models.DataContext;
@@ -32,8 +33,16 @@ namespace Portfolio.WebUI.Controllers
 
         public async Task <IActionResult> Detail(BlogPostSingleQuery query)
         {
+            var allQuery = new BlogPostCommentAllQuery();
+            allQuery.BlogPostId = query.Id; 
+            ViewBag.comments=await mediator.Send(allQuery); 
             var response = await mediator.Send(query);
             return View(response);
+        } 
+        public async Task <IActionResult> PostComment(BlogPostCommentCommand command)
+        {
+            var response= await mediator.Send(command);
+            return RedirectToAction(nameof(Index));
         }
 
     }

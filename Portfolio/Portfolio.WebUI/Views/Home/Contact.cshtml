@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Contact";
 }
 <div role="tabpanel" class="tab-pane fade in active" id="contact">
@@ -47,8 +46,9 @@
 
             <!-- MAP -->
             <section class="map-block">
-                <div class="map-wrapper" id="map-canvas" data-lat="-37.814199" data-lng="144.961560" data-zoom="13" data-style="1"></div>
-                <div class="markers-wrapper addresses-block"> <a class="marker" data-rel="map-canvas" data-lat="-37.814199" data-lng="144.961560" data-string="Envato"></a> </div>
+              @*  <div class="map-wrapper" id="map-canvas" data-lat="40.415271" data-lng="49.900083" data-zoom="13" data-style="1"></div>
+                <div class="markers-wrapper addresses-block"> <a class="marker" data-rel="map-canvas" data-lat="-37.814199" data-lng="144.961560" data-string="Envato"></a> </div>*@
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24313.215380891517!2d49.86191205!3d40.3833254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d6a7f9f2ccb%3A0x33c97b0f9560617c!2sAzerbaijan%20University%20of%20Languages!5e0!3m2!1sen!2s!4v1670762851719!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </section>
 
             <!-- Contact  -->
@@ -61,30 +61,30 @@
                     <div id="contact_message_1" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
 
                     <!-- FORM -->
-                    <form role="form" id="contact_form_1" class="contact-form" method="post" onSubmit="return false">
+                    <form role="form" id="contact_form_1" class="contact-form" method="post" asp-controller="Home" asp-action="Contact">
                         <ul class="row">
                             <li class="col-sm-4">
                                 <label>
-                                    <input type="text" class="form-control" name="name" id="name_1" placeholder="NAME">
+                                    <input type="text" class="form-control"  name="Name" id="name_1" placeholder="NAME">
                                 </label>
                             </li>
                             <li class="col-sm-4">
                                 <label>
-                                    <input type="text" class="form-control" name="email" id="email_1" placeholder="EMAIL">
+                                    <input type="text" class="form-control" name="Email" id="email_1" placeholder="EMAIL">
                                 </label>
                             </li>
                             <li class="col-sm-4">
                                 <label>
-                                    <input type="text" class="form-control" name="company" id="company_1" placeholder="SUBJECT">
+                                    <input type="text" class="form-control" name="Subject" id="company_1" placeholder="SUBJECT">
                                 </label>
                             </li>
                             <li class="col-sm-12">
                                 <label>
-                                    <textarea class="form-control" name="message" id="message_1" rows="5" placeholder="CONTENT..."></textarea>
+                                    <textarea class="form-control" name="Message" id="message_1" rows="5" placeholder="CONTENT..."></textarea>
                                 </label>
                             </li>
                             <li class="col-sm-12">
-                                <button type="submit" value="submit" id="btn_submit_1" onClick="proceed();">SEND ME</button>
+                                <button type="submit">SEND ME</button>
                             </li>
                         </ul>
                     </form>

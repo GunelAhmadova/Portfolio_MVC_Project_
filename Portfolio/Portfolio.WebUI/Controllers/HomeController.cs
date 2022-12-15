@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Portfolio.Domain.AppCode.Bussines.BackgroundModule;
+using Portfolio.Domain.AppCode.Bussines.ContactPostModule;
 using Portfolio.Domain.AppCode.Bussines.PersonModule;
 using Portfolio.Domain.AppCode.Bussines.PortfoliaModule;
 using Portfolio.Domain.AppCode.Bussines.ServiceModule;
@@ -51,11 +52,20 @@ namespace Portfolio.WebUI.Controllers
             vm.Backgrounds = (ICollection<Background>)await mediator.Send(Bquery);
 
             return View(vm);
-        }
+        } 
+
+
         public IActionResult Contact()
         {
             return View();
-        } 
+        }
+        [HttpPost]  
+        public async Task <IActionResult> Contact(ContactPostCreateCommand command) 
+        {
+            await mediator.Send(command);
+            return View();
+        }
+
 
 
         public async Task <IActionResult> Portfolia()

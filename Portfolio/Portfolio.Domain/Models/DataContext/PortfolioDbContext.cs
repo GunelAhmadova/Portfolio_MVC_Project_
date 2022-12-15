@@ -22,6 +22,8 @@ namespace Portfolio.Domain.Models.DataContext
         public DbSet<Category> Categories { get; set; }
         public DbSet<BlogPost> BlogPosts { get; set; }
         public DbSet<BlogPostComment> BlogPostComments { get; set; }
+        public DbSet<ContactPost> ContactPosts { get; set; }
+
 
 
 

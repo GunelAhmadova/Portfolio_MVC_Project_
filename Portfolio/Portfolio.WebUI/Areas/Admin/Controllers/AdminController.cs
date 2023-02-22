@@ -6,7 +6,7 @@ namespace Portfolio.WebUI.Areas.Admin.Controllers
 {
 
     [Area("Admin")]
-    [Authorize(Roles ="admin,moderator")]
+    //[Authorize(Roles ="admin,moderator")]
     public class AdminController : Controller
     {
         public IActionResult Index()

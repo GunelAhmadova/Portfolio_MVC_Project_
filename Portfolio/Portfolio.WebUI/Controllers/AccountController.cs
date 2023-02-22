@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Portfolio.Domain.AppCode.Bussines.AccountModule;
 using System.Threading.Tasks;
 
-namespace Portfolio.WebUI.Controllers
+namespace Dominos.WebUI.Controllers
 {
     public class AccountController : Controller
     {

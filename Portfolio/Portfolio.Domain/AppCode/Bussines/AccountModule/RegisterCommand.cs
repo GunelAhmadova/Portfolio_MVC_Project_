@@ -9,7 +9,7 @@ using System.Security.Claims;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Portfolio.Domain.AppCode.Bussines.AccountModule
+namespace Dominos.Domain.AppCode.Bussines.AccountModule
 {
     public class RegisterCommand :IRequest<AppUser>
     {

@@ -40,12 +40,15 @@ namespace Portfolio.WebUI
 
             services.AddFluentValidationAutoValidation();
             services.AddValidatorsFromAssemblies(assemblies);
+
             services.AddControllersWithViews();
 
             services.AddDbContext<PortfolioDbContext>(cfg =>
             {
                 cfg.UseSqlServer(Configuration.GetConnectionString("cString"));
-            });
+            }); 
+
+
             services.AddIdentity<AppUser, AppRole>(con =>
             {
                 con.Password.RequiredLength = 8;
